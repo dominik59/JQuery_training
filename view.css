@@ -1,0 +1,66 @@
+
+ #page1.ui-page{
+    background: url(backg.jpg) no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    background-size:100% 100%;
+}
+#header{
+	border-radius: 25px;
+	background:transparent;
+	border: none;
+	font-size: 20px;
+	text-shadow: none;
+}
+#content1{
+	width: 300px;
+	background: url(loginbg.jpg);
+	background-size: 100% 100%;
+	border-radius: 25px;
+}
+#button1{
+	border-radius: 25px;
+	border: none;
+	background: linear-gradient(#67ae55, #578843);
+	text-shadow: none;
+
+}
+#flip3_label_id
+{
+	width: 150px;
+	background: none;
+	text-shadow:none;
+	color: black;
+	font-weight: bold;
+	font-size: 17px;
+}
+#pass_label_id{
+	
+	font-weight: normal;
+	border: none;
+	color: black;
+	font-size: 25px;
+	background: linear-gradient(#3a5795, #496cb6,#3a5795);
+	text-shadow:none;
+	width: 90px;
+	display:block;
+	border-radius: 20px;
+
+
+}
+#login_label_id{
+	font-weight: normal;
+	font-size: 25px;
+	text-shadow:none;
+	color: black;
+	border: none;
+	background: linear-gradient(#3a5795, #496cb6,#3a5795);
+	border-radius: 20px;
+	width: 90px;
+}
+
+#footer{
+	font-size: 10px;
+}
