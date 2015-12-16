@@ -7,6 +7,23 @@
     background-size: cover;
     background-size:100% 100%;
 }
+#page2.ui-page{
+    background: url(backg.jpg) no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    background-size:100% 100%;
+
+}
+#page3.ui-page{
+    background: url(backg.jpg) no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    background-size:100% 100%;
+}
 #header{
 	border-radius: 25px;
 	background:transparent;
@@ -15,7 +32,35 @@
 	text-shadow: none;
 }
 #content1{
-	width: 300px;
+	width: 20%;
+	min-width: 300px;
+	background: url(loginbg.jpg);
+	background-size: 100% 100%;
+	border-radius: 25px;
+}
+#content2{
+	width: 35%;
+	display: block;
+	margin-left: auto;
+    margin-right: auto;
+	min-width: 300px;
+	background: url(loginbg.jpg);
+	background-size: 100% 100%;
+	border-radius: 25px;
+}
+#admin_img{
+	display: block;
+	margin-left: auto;
+    margin-right: auto;
+    width:250px;
+    height:250px;
+}
+#footer{
+	width: 100%;
+	display: block;
+	margin-left: auto;
+    margin-right: auto;
+	min-width: 300px;
 	background: url(loginbg.jpg);
 	background-size: 100% 100%;
 	border-radius: 25px;
