@@ -9,12 +9,35 @@
 
   $databaseName = "przychodnia";
   $tableName = "uzytkownicy";
-  $logi="";
+  
+  $login="";
+  $password="";
+  $name="";
+  $surname="";
+  $curdate="";
   
   if(isset($_POST['login'])=== true)
   {
-    $logi=$_POST['login'];
+    $login=$_POST['login'];
   }
+  if(isset($_POST['password'])=== true)
+  {
+    $password=$_POST['password'];
+  }
+  if(isset($_POST['name'])=== true)
+  {
+    $name=$_POST['name'];
+  }
+  if(isset($_POST['surname'])=== true)
+  {
+    $surname=$_POST['surname'];
+  }
+  if(isset($_POST['curdate'])=== true)
+  {
+    $curdate=$_POST['curdate'];
+  }
+
+  
 
   //--------------------------------------------------------------------------
   // 1) Connect to mysql database
@@ -27,15 +50,12 @@
   // 2) Query database for data
   //--------------------------------------------------------------------------
   
-  $result = mysql_query("SELECT uzytkownicy.haslo,uzytkownicy.permission FROM $tableName WHERE uzytkownicy.login ='".$logi."'" );          //query
-  while ( $row = mysql_fetch_row($result) )
-  {
-    $data[] = $row;
-  }
+  $result = mysql_query("INSERT INTO `uzytkownicy` (`login`, `haslo`, `permission`, `Data_zatrudnienia`, `Imie`, `Nazwisko`) VALUES('".$login."', '".$password."', 'doctor', '".$curdate."','".$name."','".$surname."');" );          //query
+  
   
   //--------------------------------------------------------------------------
   // 3) echo result as json 
   //--------------------------------------------------------------------------
-  echo json_encode($data);
+  echo json_encode($result);
 
 ?>

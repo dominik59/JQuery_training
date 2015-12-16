@@ -76,8 +76,91 @@ $( document ).ready(function() {
 //////////////////////////////nurse_page
 
 
-//////////////////////////////add_new_doctor_page
+//////////////////////////////nurse_page
+$( document ).ready(function() {
+	$('#delete_doctor_button').bind("click",function(event, li){
+	var name=1;
+	$.ajax({ 
+		  type:"POST",                                     
+	      url: 'delete_user.php',                  //the script to call to get data          
+	      data: {mode: "1"},
+	                              //you can insert url argumnets here to pass to api.php
+	                                       //for example "id=5&parent=6"
+	      dataType: 'json',                //data format      
+	      success: function(data)          //on recieve of reply
+	      {
+	      	//alert(data);
+	      	for (i in data){
+	      		var login=data[i][0];
+	      		var password=data[i][1];
+	      		var permission=data[i][2];
+	      		var hire_date=data[i][3];
+	      		var name=data[i][4];
+	      		var surname=data[i][5];
+	      		//alert(data[i]);
+	      		document.getElementById('delete_doctor_page_div').innerHTML=document.getElementById('delete_doctor_page_div').innerHTML+'<li style="background:#fff"data-role="fieldcontain" class="ui-field-contain ui-body ui-br ui-li ui-li-static ui-body-c"> <label style="border:none" for="add_new_doctor_login" class="ui-input-text"><b>'+'Login: </b>'+login+'<b> Imie i Nazwisko: </b>'+name+' '+surname+'</label>';
+	      	}
+	      	document.getElementById('delete_doctor_page_div').innerHTML=document.getElementById('delete_doctor_page_div').innerHTML+'<li style="background:#fff" data-role="fieldcontain" class="ui-field-contain ui-body ui-br ui-li ui-li-static ui-body-c"><input type="text" name="name" value="" class="ui-input-text ui-body-c ui-corner-all ui-shadow-inset"></li>';
+	      	
+	        
+	      } 
+	    });
+	
+	document.getElementById('delete_doctor_page_div').innerHTML='<li data-role="fieldcontain" class="ui-field-contain ui-body ui-br ui-li ui-li-static ui-body-c"> <label style="border:none" for="add_new_doctor_login" class="ui-input-text">'+'<b>Aktualnie zatrudnieni pracownicy:</b>'+'</label>';
+	});
+});
 
+//////////////////////////////nurse_page
+
+
+//////////////////////////////add_new_doctor_page
+$( document ).ready(function() {
+	$('#add_new_doctor_button').on('click',function(){
+		var login= $('#add_new_doctor_login').val();
+		var password= $('#add_new_doctor_password').val();
+		var name = $('#add_new_doctor_name').val();
+		var surname = $('#add_new_doctor_surname').val();
+		var curdate = $('#add_new_doctor_date_input').val();
+		//alert(curdate);
+		$.ajax({ 
+		  type:"POST",                                     
+	      url: 'add_user.php',                  //the script to call to get data          
+	      data: {login:login, password:password, name:name, surname:surname, curdate:curdate},
+	                              //you can insert url argumnets here to pass to api.php
+	                                       //for example "id=5&parent=6"
+	      dataType: 'json',                //data format      
+	      success: function(data)          //on recieve of reply
+	      {
+	      	//alert(data);
+	      	var status = data;
+	      	if(data==true)
+	      	{
+	      		$('#pop_up_h1').text("Dodano do bazy");
+	      		$('#pop_up_p').text("Do bazy danych dodano wszystkie wymagane rekordy");
+	      		//$.mobile.changePage( $("#pop_up_page"), "flip", true, true);
+	      	}
+	      	/*var pass = data[0][0];
+	      	var perm = data[0][1];
+	      	if($('#password_id').val()==pass)
+	      	{
+	      		if(perm=="admin")
+	      		{
+	      			$.mobile.changePage( $("#admin_page"), "slide", true, true);
+	      		}
+	      		if(perm=="nurse")
+	      		{
+	      			$.mobile.changePage($('#nurse_page'),"slide",true,true);
+	      		}
+	      		if(perm=="doctor")
+	      		{
+	      			$.mobile.changePage($('#add_new_doctor_page'),"slide",true,true);
+	      		}
+	      	}*/
+	        
+	      }
+	    }); 
+	});
+});
 //////////////////////////////add_new_doctor_page
 
 
