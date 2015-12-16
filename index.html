@@ -5,11 +5,12 @@
 	<meta charset="UTF-8">
 
 	<script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>
-	<script src="admin.html"></script>
-	<script src="user.html"></script>
+	
     <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+
     <link rel="stylesheet" href="view.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	
 	<script>
 	    $(document).bind('mobileinit',function(){
 	        $.mobile.changePage.defaults.changeHash = false;
@@ -22,6 +23,7 @@
 
 </head>
 <body>
+<script src="scripts.js"></script>
 	<div data-role="page" id="page1" >
 	    <div data-role="header" id="header">
 	         <h1 id="header_text_id">Strona logowania do platformy u-DUŚ</h1>
@@ -46,95 +48,34 @@
 					</select> 
 				</div>
 				<a href="#" id="button1" class="ui-btn">Zaloguj</a>
-				<script type="text/javascript">
-					$( document ).ready(function() {
-						$('#button1').on('click',function(){
-				  			var login = $('#login_id').val();
-				  			$.ajax({ 
-				  			  type:"POST",                                     
-						      url: 'singing_in.php',                  //the script to call to get data          
-						      data: {login},
-						                              //you can insert url argumnets here to pass to api.php
-						                                       //for example "id=5&parent=6"
-						      dataType: 'json',                //data format      
-						      success: function(data)          //on recieve of reply
-						      {
-						      	//alert(data[0][0]);
-						      	var pass = data[0][0];
-						      	var perm = data[0][1];
-						      	if($('#password_id').val()==pass)
-						      	{
-						      		if(perm=="admin")
-						      		{
-						      			$.mobile.changePage( $("#page2"), "slide", true, true);
-						      		}
-						      		if(perm=="user")
-						      		{
-						      			$.mobile.changePage($('#page3'),"slide",true,true);
-						      		}
-						      	}
-						        
-						      } 
-						    });
-
-
-
-				  			/*if($.trim(login) != '') //trim usuwa spacje
-				  			{
-				  				$.post('user_name.php',{login : login},function(data){
-				  						alert(data[0]);
-				  						if($("#password_id").val()==data)
-				  						{
-				  							$.mobile.changePage( $("#page2"), "slide", true, true);
-				  						}
-				  						//w tym miejscu następuje rurchomienie pliku name.php i przekazanie mu zmiennej która nazywać się będzie name a wartość jej to będzie to co siedzi w zmienej tymczasowej name stworzonej wcześniej. to co zostanie zwrócone to data,które jest argumentem funkcji
-				  				});
-				  			}*/
-				  		});
-					    $( "#flip_switch_id" ).on( 'slidestop', function() {
-					    	
-					    	if($("#flip_switch_id").val()=="Tak")
-					    	{
-					    		$('#password_id').attr('type', 'text');
-					    		
-
-					    	}
-					    	else
-					    	{
-					    		$("#password_id").prop("type","password");
-					    		
-					    	}
-					    });
-					$("#flip_switch_div_id").hide();
-					$("#button1").prop("disabled",true);
-					$("#button1").prop("disabled",false);
-					$("#password_id").bind("tap",function (){
-						$("#flip_switch_div_id").show(500);
-					});
-					$("#login_id").bind("tap",function(){
-						$("#flip_switch_div_id").hide(500);
-					});
-					});
-					
-					
-				</script>
+				
 			
 	    </div>
 	    </center>
 	    <center>
-	    	<div id="footer" data-role="footer" style="width:300px">
+	    	<div id="footer1" data-role="footer">
 	        Autorzy:Anna Gawor, Dominik Pawlik
 	   		</div>
 	    </center>
 	</div>
 
-	<div data-role="page" id="page2">
+	<div data-role="page" id="admin_page">
 	   	<div data-role="header" id="header">
 		    <h1 id="header_text_id">Panel Administracyjny</h1>
 		</div> 	
 		<div data-role="content" id="content2">
-		<img id="admin_img" src="admin.png" alt="Admin Panel">
-		   	
+			<div><img id="admin_img" src="admin.png" alt="Admin Panel"></div>
+			<div id="space_id"></div> 
+		   	<div>
+		   		<ul data-role="listview" data-theme="g">
+			   		<li data-role="list-divider" role="heading" class="ui-li ui-li-divider ui-bar-b">Administracja</li>
+					<li><a href="audi.html">Dodaj lekarza</a></li>
+					<li><a href="audi.html">Usuń lekarza</a></li>
+					<li><a href="acura.html">Dodaj pielęgniarkę</a></li>
+					<li><a href="audi.html">Usuń pielęgniarkę</a></li>			
+					<li><a href="bmw.html">Wyświetl dane pracowników</a></li>
+				</ul>
+		   	</div>
 		   	<script type="text/javascript">
 		  		
 		  	</script>
@@ -149,26 +90,16 @@
 		</div><!-- /footer -->
 	</div>  
 
-	<div data-role="page" id="page3">
+	<div data-role="page" id="nurse_page">
 	   	<div data-role="header" id="header">
 		    <h1 id="header_text_id">Panel użytkownika</h1>
 		</div> 	
 		<div data-role="content" id="content2">
-		    <label for="base-text">Wyszukiwanie w bazie:</label>
-	    	<input type="text" name="name" id="base-text" value=""  />
-		  		<input type="submit" id="name-submit" value="Grab">
-		  		<div id="name-data"></div>
-		  		<script type="text/javascript">
-		  		$('#name-submit').on('click',function(){
-		  			var login = $('#base-text').val();
-		  			if($.trim(login) != '') //trim usuwa spacje
-		  			{
-		  				$.post('user_name.php',{login : login},function(data){
-		  						$("#name-data").text(data);//w tym miejscu następuje rurchomienie pliku name.php i przekazanie mu zmiennej która nazywać się będzie name a wartość jej to będzie to co siedzi w zmienej tymczasowej name stworzonej wcześniej. to co zostanie zwrócone to data,które jest argumentem funkcji
-		  				});
-		  			}
-		  		});
-		  		</script>
+			<img id="nurse_img" src="nurse.jpg" alt="Admin Panel">
+		    
+	  		<script type="text/javascript">
+	  		
+	  		</script>
 		</div>
 	    <div id="footer" data-role="footer" data-theme="b" data-iconpos="top" data-id="foo1" data-position="fixed">
 			<div data-role="navbar">

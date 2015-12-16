@@ -7,7 +7,7 @@
     background-size: cover;
     background-size:100% 100%;
 }
-#page2.ui-page{
+#admin_page.ui-page{
     background: url(backg.jpg) no-repeat center center fixed; 
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -16,7 +16,7 @@
     background-size:100% 100%;
 
 }
-#page3.ui-page{
+#nurse_page.ui-page{
     background: url(backg.jpg) no-repeat center center fixed; 
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -55,15 +55,33 @@
     width:250px;
     height:250px;
 }
-#footer{
-	width: 100%;
+#nurse_img{
 	display: block;
 	margin-left: auto;
     margin-right: auto;
+    width:220px;
+    height:160px;
+}
+#space_id{
+	height:15px;
+}
+#footer1{
+	width: 15%;
+	font-size: 10px;
+	text-shadow: none;
 	min-width: 300px;
 	background: url(loginbg.jpg);
 	background-size: 100% 100%;
 	border-radius: 25px;
+}
+
+#footer{
+	width: 100%;
+	text-shadow: none;
+	min-width: 300px;
+	background: url(loginbg.jpg);
+	background-size: 100% 100%;
+	
 }
 #button1{
 	border-radius: 25px;
