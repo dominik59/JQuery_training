@@ -71,9 +71,8 @@
 		   		<ul data-role="listview" data-theme="g">
 			   		<li data-role="list-divider" role="heading" class="ui-li ui-li-divider ui-bar-b">Administracja</li>
 					<li><a href="#add_new_doctor_page">Dodaj lekarza</a></li>
-					<li><a id="delete_doctor_button" href="#delete_doctor_page">Usuń lekarza</a></li>
 					<li><a href="acura.html">Dodaj pielęgniarkę</a></li>
-					<li><a href="audi.html">Usuń pielęgniarkę</a></li>			
+					<li><a id="delete_doctor_button" href="#delete_doctor_page">Usuń pracownika</a></li>				
 					<li><a href="bmw.html">Wyświetl dane pracowników</a></li>
 					<li><a href="acura.html">Zmień upawnienia użytkownika</a></li>
 				</ul>
@@ -181,11 +180,33 @@
 		</div> 	
 		<div data-role="content" id="content2">
 			<img id="doctor_img" src="doctor.jpg" alt="Admin Panel">
-		    <div>
-			    <ul id="delete_doctor_page_div" data-role="listview" data-theme="g">
-			    	
-			    </ul>
-			</div>
+			<ul data-role="listview" data-theme="g">
+				<li data-role="fieldcontain" class="ui-field-contain ui-body ui-br ui-li ui-li-static ui-body-c">
+					<label style="border:none" for="surname" class="ui-input-text"><b>Login do usunięcia:</b></label></li>
+				<li data-role="fieldcontain" class="ui-field-contain ui-body ui-br ui-li ui-li-static ui-body-c">
+		    		<input type="text" name="surname" id="delete_doctor_login" value="" class="ui-input-text ui-body-c ui-corner-all ui-shadow-inset"></li>
+				<li data-role="fieldcontain" class="ui-field-contain ui-body ui-br ui-li ui-li-static ui-body-c">
+					<label style="border:none" for="surname" class="ui-input-text"><b>Aktualnie zatrudnieni pracownicy:</b></label></li>
+				<li data-role="fieldcontain" class="ui-field-contain ui-body ui-br ui-li ui-li-static ui-body-c">
+				    <div data-role="collapsible">
+					   <h3>Lekarze</h3>
+					   <ul id="delete_doctor_page_ul" data-role="listview" data-theme="g">
+					    	
+					   </ul>
+					</div>
+				</li>
+				<li data-role="fieldcontain" class="ui-field-contain ui-body ui-br ui-li ui-li-static ui-body-c">
+				    <div data-role="collapsible" >
+					   <h3>Pielęgniarki</h3>
+					   <ul id="delete_nurse_page_ul" data-role="listview" data-theme="g">
+					    	
+					   </ul>
+					</div>
+				</li>
+
+			</ul>
+			    
+			
 	  		<script type="text/javascript">
 	  		
 	  		</script>
@@ -194,6 +215,7 @@
 			<div data-role="navbar">
 				<ul>
 					<li><a data-icon="back" href="#admin_page">Cofnij</a></li>
+					<li><a id="delete_user_accept"data-icon="check" href="#pop_up_page" data-rel="dialog" data-transition="flip">Akceptuj</a></li>
 					
 				</ul>
 			</div><!-- /navbar -->

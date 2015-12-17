@@ -26,7 +26,7 @@ $( document ).ready(function() {
 	      		}
 	      		if(perm=="doctor")
 	      		{
-	      			$.mobile.changePage($('#add_new_doctor_page'),"slide",true,true);
+	      			$.mobile.changePage($('#doctor_page'),"slide",true,true);
 	      		}
 	      	}
 	        
@@ -78,7 +78,7 @@ $( document ).ready(function() {
 
 //////////////////////////////nurse_page
 $( document ).ready(function() {
-	$('#delete_doctor_button').bind("click",function(event, li){
+	$('#delete_doctor_button').bind("click",function(){
 	var name=1;
 	$.ajax({ 
 		  type:"POST",                                     
@@ -98,15 +98,54 @@ $( document ).ready(function() {
 	      		var name=data[i][4];
 	      		var surname=data[i][5];
 	      		//alert(data[i]);
-	      		document.getElementById('delete_doctor_page_div').innerHTML=document.getElementById('delete_doctor_page_div').innerHTML+'<li style="background:#fff"data-role="fieldcontain" class="ui-field-contain ui-body ui-br ui-li ui-li-static ui-body-c"> <label style="border:none" for="add_new_doctor_login" class="ui-input-text"><b>'+'Login: </b>'+login+'<b> Imie i Nazwisko: </b>'+name+' '+surname+'</label>';
+	      		if(permission=="doctor")
+	      		{
+	      			document.getElementById('delete_doctor_page_ul').innerHTML=document.getElementById('delete_doctor_page_ul').innerHTML+'<li style="background:#fff"data-role="fieldcontain" class="ui-field-contain ui-body ui-br ui-li ui-li-static ui-body-c"> <label style="border:none" for="add_new_doctor_login" class="ui-input-text"><b>'+'Login: </b>'+login+'<b> Imie i Nazwisko: </b>'+name+' '+surname+'</label></li>';
+	      		}
+	      		if(permission=="nurse")
+	      		{
+	      			document.getElementById('delete_nurse_page_ul').innerHTML=document.getElementById('delete_nurse_page_ul').innerHTML+'<li style="background:#fff"data-role="fieldcontain" class="ui-field-contain ui-body ui-br ui-li ui-li-static ui-body-c"> <label style="border:none" for="add_new_doctor_login" class="ui-input-text"><b>'+'Login: </b>'+login+'<b> Imie i Nazwisko: </b>'+name+' '+surname+'</label></li>';
+	      		}
+	      		
 	      	}
-	      	document.getElementById('delete_doctor_page_div').innerHTML=document.getElementById('delete_doctor_page_div').innerHTML+'<li style="background:#fff" data-role="fieldcontain" class="ui-field-contain ui-body ui-br ui-li ui-li-static ui-body-c"><input type="text" name="name" value="" class="ui-input-text ui-body-c ui-corner-all ui-shadow-inset"></li>';
+	      	//document.getElementById('delete_doctor_page_div').innerHTML=document.getElementById('delete_doctor_page_div').innerHTML+'<li style="background:#fff" data-role="fieldcontain" class="ui-field-contain ui-body ui-br ui-li ui-li-static ui-body-c">		    		<label style="border:none" for="add_new_doctor_login" class="ui-input-text">Wpisz login osoby do usunięcia:</label>		 <br>   		<input type="text" name="name" id="add_new_doctor_login" value="" class="ui-input-text ui-body-c ui-corner-all ui-shadow-inset"></li>';
 	      	
 	        
 	      } 
 	    });
 	
-	document.getElementById('delete_doctor_page_div').innerHTML='<li data-role="fieldcontain" class="ui-field-contain ui-body ui-br ui-li ui-li-static ui-body-c"> <label style="border:none" for="add_new_doctor_login" class="ui-input-text">'+'<b>Aktualnie zatrudnieni pracownicy:</b>'+'</label>';
+	document.getElementById('delete_doctor_page_ul').innerHTML='<li data-role="fieldcontain" class="ui-field-contain ui-body ui-br ui-li ui-li-static ui-body-c"> <label style="border:none" for="add_new_doctor_login" class="ui-input-text">'+'<b>Aktualnie zatrudnieni doktorzy:</b>'+'</label></li>';
+	document.getElementById('delete_nurse_page_ul').innerHTML='<li data-role="fieldcontain" class="ui-field-contain ui-body ui-br ui-li ui-li-static ui-body-c"> <label style="border:none" for="add_new_doctor_login" class="ui-input-text">'+'<b>Aktualnie zatrudnione pielęgniarki:</b>'+'</label></li>';
+	});
+//document.getElementById('delete_doctor_page_div').innerHTML='<li style="background:#fff" data-role="fieldcontain" class="ui-field-contain ui-body ui-br ui-li ui-li-static ui-body-c">		    		<label style="border:none" for="add_new_doctor_login" class="ui-input-text"><b>Login osoby do usunięcia:</b></label></li>		 <li style="background:#fff" data-role="fieldcontain" class="ui-field-contain ui-body ui-br ui-li ui-li-static ui-body-c">   		<input type="text" name="name" id="add_new_doctor_login" value="" class="ui-input-text ui-body-c ui-corner-all ui-shadow-inset"></li>';
+});
+
+$( document ).ready(function() {
+	$('#delete_user_accept').bind("click",function(){
+	var login=$('#delete_doctor_login').val();
+	$.ajax({ 
+		  type:"POST",                                     
+	      url: 'delete_user.php',                  //the script to call to get data          
+	      data: {mode: "2", login:login},
+	                              //you can insert url argumnets here to pass to api.php
+	                                       //for example "id=5&parent=6"
+	      dataType: 'json',                //data format      
+	      success: function(data)          //on recieve of reply
+	      {
+	      	if(data==true)
+	      	{
+	      		$('#pop_up_h1').text("SUKCES");
+	      		$('#pop_up_p').text("Z bazy danych pomyślnie usunięto wymagane rekordy");
+	      	}
+	      	else
+	      	{
+	      		$('#pop_up_h1').text("PORAŻKA");
+	      		$('#pop_up_p').text("Podczas usuwania z bazy danych wystąpił błąd, może być to spowodowane błędnie wpisanym loginem, prosimy spróbować ponownie.");
+	      	}
+
+	      }
+
+	  });
 	});
 });
 
