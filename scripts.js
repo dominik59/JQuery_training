@@ -76,7 +76,7 @@ $( document ).ready(function() {
 //////////////////////////////nurse_page
 
 
-//////////////////////////////nurse_page
+//////////////////////////////delete_user
 $( document ).ready(function() {
 	$('#delete_doctor_button').bind("click",function(){
 	var name=1;
@@ -149,7 +149,7 @@ $( document ).ready(function() {
 	});
 });
 
-//////////////////////////////nurse_page
+//////////////////////////////delete_user
 
 
 //////////////////////////////add_new_doctor_page
@@ -160,11 +160,12 @@ $( document ).ready(function() {
 		var name = $('#add_new_doctor_name').val();
 		var surname = $('#add_new_doctor_surname').val();
 		var curdate = $('#add_new_doctor_date_input').val();
+		var mode=1;
 		//alert(curdate);
 		$.ajax({ 
 		  type:"POST",                                     
 	      url: 'add_user.php',                  //the script to call to get data          
-	      data: {login:login, password:password, name:name, surname:surname, curdate:curdate},
+	      data: {mode:mode, login:login, password:password, name:name, surname:surname, curdate:curdate},
 	                              //you can insert url argumnets here to pass to api.php
 	                                       //for example "id=5&parent=6"
 	      dataType: 'json',                //data format      
@@ -201,5 +202,56 @@ $( document ).ready(function() {
 	});
 });
 //////////////////////////////add_new_doctor_page
+
+//////////////////////////////add_new_nurse_page
+$( document ).ready(function() {
+	$('#add_new_nurse_button').on('click',function(){
+		var login= $('#add_new_nurse_login').val();
+		var password= $('#add_new_nurse_password').val();
+		var name = $('#add_new_nurse_name').val();
+		var surname = $('#add_new_nurse_surname').val();
+		var curdate = $('#add_new_nurse_date_input').val();
+		var mode=2;
+		//alert(curdate);
+		$.ajax({ 
+		  type:"POST",                                     
+	      url: 'add_user.php',                  //the script to call to get data          
+	      data: {mode:mode, login:login, password:password, name:name, surname:surname, curdate:curdate},
+	                              //you can insert url argumnets here to pass to api.php
+	                                       //for example "id=5&parent=6"
+	      dataType: 'json',                //data format      
+	      success: function(data)          //on recieve of reply
+	      {
+	      	//alert(data);
+	      	var status = data;
+	      	if(data==true)
+	      	{
+	      		$('#pop_up_h1').text("Dodano do bazy");
+	      		$('#pop_up_p').text("Do bazy danych dodano wszystkie wymagane rekordy");
+	      		//$.mobile.changePage( $("#pop_up_page"), "flip", true, true);
+	      	}
+	      	/*var pass = data[0][0];
+	      	var perm = data[0][1];
+	      	if($('#password_id').val()==pass)
+	      	{
+	      		if(perm=="admin")
+	      		{
+	      			$.mobile.changePage( $("#admin_page"), "slide", true, true);
+	      		}
+	      		if(perm=="nurse")
+	      		{
+	      			$.mobile.changePage($('#nurse_page'),"slide",true,true);
+	      		}
+	      		if(perm=="doctor")
+	      		{
+	      			$.mobile.changePage($('#add_new_doctor_page'),"slide",true,true);
+	      		}
+	      	}*/
+	        
+	      }
+	    }); 
+	});
+});
+//////////////////////////////add_new_nurse_page
 
 

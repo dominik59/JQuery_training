@@ -3,12 +3,7 @@
   //--------------------------------------------------------------------------
   // Example php script for fetching data from mysql database
   //--------------------------------------------------------------------------
-  $host = "localhost";
-  $user = "root";
-  $pass = "";
-
-  $databaseName = "przychodnia";
-  $tableName = "uzytkownicy";
+  include "DB.php";
   $logi="";
   
   if(isset($_POST['login'])=== true)

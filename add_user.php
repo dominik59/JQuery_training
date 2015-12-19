@@ -3,12 +3,7 @@
   //--------------------------------------------------------------------------
   // Example php script for fetching data from mysql database
   //--------------------------------------------------------------------------
-  $host = "localhost";
-  $user = "root";
-  $pass = "";
-
-  $databaseName = "przychodnia";
-  $tableName = "uzytkownicy";
+  include "DB.php";
   
   $login="";
   $password="";
@@ -38,24 +33,48 @@
   }
 
   
+  if(isset($_POST['mode'])=== true && $_POST['mode']==1)
+  {
+    //--------------------------------------------------------------------------
+    // 1) Connect to mysql database
+    //--------------------------------------------------------------------------
+    //include 'DB.php';
+    $con = mysql_connect($host,$user,$pass);
+    $dbs = mysql_select_db($databaseName, $con);
 
-  //--------------------------------------------------------------------------
-  // 1) Connect to mysql database
-  //--------------------------------------------------------------------------
-  //include 'DB.php';
-  $con = mysql_connect($host,$user,$pass);
-  $dbs = mysql_select_db($databaseName, $con);
+    //--------------------------------------------------------------------------
+    // 2) Query database for data
+    //--------------------------------------------------------------------------
+    
+    $result = mysql_query("INSERT INTO `uzytkownicy` (`login`, `haslo`, `permission`, `Data_zatrudnienia`, `Imie`, `Nazwisko`) VALUES('".$login."', '".$password."', 'doctor', '".$curdate."','".$name."','".$surname."');" );          //query
+    
+    
+    //--------------------------------------------------------------------------
+    // 3) echo result as json 
+    //--------------------------------------------------------------------------
+    echo json_encode($result);
+  }
+  else if (isset($_POST['mode'])=== true && $_POST['mode']==2)
+  {
+    //--------------------------------------------------------------------------
+    // 1) Connect to mysql database
+    //--------------------------------------------------------------------------
+    //include 'DB.php';
+    $con = mysql_connect($host,$user,$pass);
+    $dbs = mysql_select_db($databaseName, $con);
 
-  //--------------------------------------------------------------------------
-  // 2) Query database for data
-  //--------------------------------------------------------------------------
+    //--------------------------------------------------------------------------
+    // 2) Query database for data
+    //--------------------------------------------------------------------------
+    
+    $result = mysql_query("INSERT INTO `uzytkownicy` (`login`, `haslo`, `permission`, `Data_zatrudnienia`, `Imie`, `Nazwisko`) VALUES('".$login."', '".$password."', 'nurse', '".$curdate."','".$name."','".$surname."');" );          //query
+    
+    
+    //--------------------------------------------------------------------------
+    // 3) echo result as json 
+    //--------------------------------------------------------------------------
+    echo json_encode($result);
+  }
   
-  $result = mysql_query("INSERT INTO `uzytkownicy` (`login`, `haslo`, `permission`, `Data_zatrudnienia`, `Imie`, `Nazwisko`) VALUES('".$login."', '".$password."', 'doctor', '".$curdate."','".$name."','".$surname."');" );          //query
-  
-  
-  //--------------------------------------------------------------------------
-  // 3) echo result as json 
-  //--------------------------------------------------------------------------
-  echo json_encode($result);
 
 ?>
