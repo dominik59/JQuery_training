@@ -1,17 +1,17 @@
 <?php  
   /////////////////////////webpage
-  // $host = "localhost";
-  // $user = "iqserwer_dpawlik";
-  // $pass = "dpawlik2015";
+  $host = "localhost";
+  $user = "iqserwer_dpawlik";
+  $pass = "dpawlik2015";
 
-  // $databaseName = "iqserwer_dpawlik";
-  // $tableName = "uzytkownicy";
+  $databaseName = "iqserwer_dpawlik";
+  $tableName = "uzytkownicy";
 
   /////////////////////////local
-  $host = "localhost";
-  $user = "root";
-  $pass = "";
+  // $host = "localhost";
+  // $user = "root";
+  // $pass = "";
 
-  $databaseName = "przychodnia";
-  $tableName = "uzytkownicy";
+  // $databaseName = "przychodnia";
+  // $tableName = "uzytkownicy";
 ?>
