@@ -1,4 +1,12 @@
-
+/* Ensure that the demo table scrolls */
+    th, td { white-space: nowrap; }
+    div.dataTables_wrapper {
+        margin: 0 auto;
+    }
+ 
+    div.container {
+        width: 80%;
+    }
  #page1.ui-page{
     background: url(backg.jpg) no-repeat center center fixed; 
     -webkit-background-size: cover;
@@ -57,6 +65,14 @@
     background-size:100% 100%;
 }
 #pop_up_page.ui-page{
+    background: url(backg.jpg) no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    background-size:100% 100%;
+}
+#show_all_employees.ui-page{
     background: url(backg.jpg) no-repeat center center fixed; 
     -webkit-background-size: cover;
     -moz-background-size: cover;

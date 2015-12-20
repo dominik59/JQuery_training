@@ -255,3 +255,18 @@ $( document ).ready(function() {
 //////////////////////////////add_new_nurse_page
 
 
+//////////////////////////////show_new_employees
+$(document).ready(function() {
+    $('#example').DataTable({
+		scrollY:        "300px",
+        scrollX:        true,
+        scrollCollapse: true,
+        paging:         false,
+        "bSort": true,
+        columnDefs: [
+            { width: '20%', targets: 0 }
+        ],
+        fixedColumns: true
+    	});
+});
+//////////////////////////////show_new_employees
