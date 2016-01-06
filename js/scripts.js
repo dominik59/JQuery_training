@@ -5,7 +5,7 @@ $( document ).ready(function() {
 		var login = $('#login_id').val();
 		$.ajax({ 
 		  type:"POST",                                     
-	      url: 'singing_in.php',                  //the script to call to get data          
+	      url: 'php/singing_in.php',                  //the script to call to get data          
 	      data: {login},
 	                              //you can insert url argumnets here to pass to api.php
 	                                       //for example "id=5&parent=6"
@@ -83,7 +83,7 @@ $( document ).ready(function() {
 	var name=1;
 	$.ajax({ 
 		  type:"POST",                                     
-	      url: 'delete_user.php',                  //the script to call to get data          
+	      url: 'php/delete_user.php',                  //the script to call to get data          
 	      data: {mode: "1"},
 	                              //you can insert url argumnets here to pass to api.php
 	                                       //for example "id=5&parent=6"
@@ -126,7 +126,7 @@ $( document ).ready(function() {
 	var login=$('#delete_doctor_login').val();
 	$.ajax({ 
 		  type:"POST",                                     
-	      url: 'delete_user.php',                  //the script to call to get data          
+	      url: 'php/delete_user.php',                  //the script to call to get data          
 	      data: {mode: "2", login:login},
 	                              //you can insert url argumnets here to pass to api.php
 	                                       //for example "id=5&parent=6"
@@ -165,7 +165,7 @@ $( document ).ready(function() {
 		//alert(curdate);
 		$.ajax({ 
 		  type:"POST",                                     
-	      url: 'add_user.php',                  //the script to call to get data          
+	      url: 'php/add_user.php',                  //the script to call to get data          
 	      data: {mode:mode, login:login, password:password, name:name, surname:surname, curdate:curdate},
 	                              //you can insert url argumnets here to pass to api.php
 	                                       //for example "id=5&parent=6"
@@ -216,7 +216,7 @@ $( document ).ready(function() {
 		//alert(curdate);
 		$.ajax({ 
 		  type:"POST",                                     
-	      url: 'add_user.php',                  //the script to call to get data          
+	      url: 'php/add_user.php',                  //the script to call to get data          
 	      data: {mode:mode, login:login, password:password, name:name, surname:surname, curdate:curdate},
 	                              //you can insert url argumnets here to pass to api.php
 	                                       //for example "id=5&parent=6"
@@ -263,7 +263,7 @@ $(document).ready(function() {
     	//var json = [{"col1":"row1", "col2":"row1", "col3":"row1","col4":"col4","col5":"col4","col6":"col4","col7":"col4"}, {"col1":"row2", "col2":"row2", "col3":"row2"}, {"col1":"row2", "col2":"row2", "col3":"row2"},{"col1":"row2", "col2":"row2", "col3":"row2"},{"col1":"row2", "col2":"row2", "col3":"row2"},{"col1":"row2", "col2":"row2", "col3":"row2"},{"col1":"row2", "col2":"row2", "col3":"row2"}]; 
    		$.ajax({ 
 		  type:"POST",                                     
-	      url: 'delete_user.php',                  //the script to call to get data          
+	      url: 'php/delete_user.php',                  //the script to call to get data          
 	      data: {mode:mode},
 	                              //you can insert url argumnets here to pass to api.php
 	                                       //for example "id=5&parent=6"
