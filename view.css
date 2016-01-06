@@ -72,13 +72,14 @@
     background-size: cover;
     background-size:100% 100%;
 }
-#show_all_employees.ui-page{
+#show_all_employees.ui-page {
     background: url(backg.jpg) no-repeat center center fixed; 
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
     background-size:100% 100%;
+    
 }
 #header{
 	border-radius: 25px;
@@ -96,6 +97,16 @@
 }
 #content2{
 	width: 35%;
+	display: block;
+	margin-left: auto;
+    margin-right: auto;
+	min-width: 300px;
+	background: url(loginbg.jpg);
+	background-size: 100% 100%;
+	border-radius: 25px;
+}
+#content3{
+	width: 90%;
 	display: block;
 	margin-left: auto;
     margin-right: auto;

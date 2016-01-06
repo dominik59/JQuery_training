@@ -1,3 +1,4 @@
+
 //////////////////////////strona główna
 $( document ).ready(function() {
 	$('#button1').on('click',function(){
@@ -257,16 +258,43 @@ $( document ).ready(function() {
 
 //////////////////////////////show_new_employees
 $(document).ready(function() {
-    $('#example').DataTable({
-		scrollY:        "300px",
-        scrollX:        true,
-        scrollCollapse: true,
-        paging:         false,
-        "bSort": true,
-        columnDefs: [
-            { width: '20%', targets: 0 }
-        ],
-        fixedColumns: true
-    	});
+	$('#show_all_employees_button').on("click",function(){
+		var mode = 3;
+    	//var json = [{"col1":"row1", "col2":"row1", "col3":"row1","col4":"col4","col5":"col4","col6":"col4","col7":"col4"}, {"col1":"row2", "col2":"row2", "col3":"row2"}, {"col1":"row2", "col2":"row2", "col3":"row2"},{"col1":"row2", "col2":"row2", "col3":"row2"},{"col1":"row2", "col2":"row2", "col3":"row2"},{"col1":"row2", "col2":"row2", "col3":"row2"},{"col1":"row2", "col2":"row2", "col3":"row2"}]; 
+   		$.ajax({ 
+		  type:"POST",                                     
+	      url: 'delete_user.php',                  //the script to call to get data          
+	      data: {mode:mode},
+	                              //you can insert url argumnets here to pass to api.php
+	                                       //for example "id=5&parent=6"
+	      dataType: 'json',                //data format      
+	      success: function(data)          //on recieve of reply
+	      {
+	      	//alert(data);
+	      	var json = data;
+	      	//alert(json);
+
+	      	$('#example').columns({
+	      		data:json,
+	      		schema: [
+                  {"header":"Login", "key":"0"},
+                  {"header":"Poziom dostępu", "key":"1"},
+                  {"header":"Data Zatrudnienia", "key":"2"},
+                  {"header":"Imie", "key":"3"},
+                  {"header":"Nazwisko", "key":"4"}
+              ]
+	      		
+		    });
+		    //alert(document.getElementById('example').innerHTML);
+	      	
+	        
+	      }
+	    });
+	});
+	
+	
+
+    
+
 });
 //////////////////////////////show_new_employees
