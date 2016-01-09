@@ -16,6 +16,8 @@
   {
     $mode=$_POST['mode'];
   }
+
+  //query to find a user in a DataBase
   if($mode=="1")
   {
     //--------------------------------------------------------------------------
@@ -41,6 +43,7 @@
     echo json_encode($data);
   }
 
+  //query to delete user from the DataBase
   if($mode=="2")
   {
     if(isset($_POST['login'])=== true)
@@ -67,6 +70,7 @@
     echo json_encode($result);
   }
   
+  //NIE WIEM, CO TU SIE DZIEJE
   if($mode=="3")
   {
     //--------------------------------------------------------------------------

@@ -7,7 +7,7 @@
 
 /*
 Signing into the uDUS platform
-Checkig the login, password and rights (a Doctor has different rights over a Nurse or an Admin) to sign in
+Checkig the login, password and rights to sign in (a Doctor has different rights over a Nurse or an Admin) 
 */
 
   $logi="";

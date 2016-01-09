@@ -1,6 +1,6 @@
 <?php  
 /*
-Data Base
+Data Base Conection Settings
 */
 
   /////////////////////////webpage

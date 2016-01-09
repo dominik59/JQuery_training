@@ -8,12 +8,14 @@
   Add a new user to the Data Base
   */
 
+  //required informations
   $login="";
   $password="";
   $name="";
   $surname="";
   $curdate="";
   
+  //set default data
   if(isset($_POST['login'])=== true)
   {
     $login=$_POST['login'];
@@ -35,7 +37,7 @@
     $curdate=$_POST['curdate'];
   }
 
-  
+  //mode 1 -> add Doctor
   if(isset($_POST['mode'])=== true && $_POST['mode']==1)
   {
     //--------------------------------------------------------------------------
@@ -57,6 +59,8 @@
     //--------------------------------------------------------------------------
     echo json_encode($result);
   }
+
+  //mode 2 -> add Nurse
   else if (isset($_POST['mode'])=== true && $_POST['mode']==2)
   {
     //--------------------------------------------------------------------------

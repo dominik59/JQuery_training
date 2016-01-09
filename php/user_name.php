@@ -1,6 +1,6 @@
 <?php
 /*
-Check the data (login, password) during the user logging
+Get the user data from the DataBase
 */
 if(isset($_POST['login'])=== true && empty($_POST['login'])===false)
 {
