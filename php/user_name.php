@@ -1,4 +1,7 @@
 <?php
+/*
+Check the data (login, password) during the user logging
+*/
 if(isset($_POST['login'])=== true && empty($_POST['login'])===false)
 {
 	require 'user_name_connection.php';

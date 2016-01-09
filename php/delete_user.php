@@ -4,6 +4,11 @@
   // Example php script for fetching data from mysql database
   //--------------------------------------------------------------------------
   include "DB.php";
+
+/*
+  Delete user from the Data Base
+  */
+
   $mode="";
   $login="";
   

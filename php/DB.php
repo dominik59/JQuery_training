@@ -1,4 +1,8 @@
 <?php  
+/*
+Data Base
+*/
+
   /////////////////////////webpage
   // $host = "localhost";
   // $user = "iqserwer_dpawlik";

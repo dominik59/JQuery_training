@@ -4,6 +4,12 @@
   // Example php script for fetching data from mysql database
   //--------------------------------------------------------------------------
   include "DB.php";
+
+/*
+Signing into the uDUS platform
+Checkig the login, password and rights (a Doctor has different rights over a Nurse or an Admin) to sign in
+*/
+
   $logi="";
   
   if(isset($_POST['login'])=== true)
