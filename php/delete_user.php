@@ -17,7 +17,7 @@
     $mode=$_POST['mode'];
   }
 
-  //query to find a user in a DataBase
+  //query to find and get all data from table, which name is stored in variable "tableName"
   if($mode=="1")
   {
     //--------------------------------------------------------------------------
@@ -43,7 +43,7 @@
     echo json_encode($data);
   }
 
-  //query to delete user from the DataBase
+  //query to delete user's data from the DataBase, whose login is transfered by variable "login"
   if($mode=="2")
   {
     if(isset($_POST['login'])=== true)
@@ -69,8 +69,17 @@
     //--------------------------------------------------------------------------
     echo json_encode($result);
   }
-  
-  //NIE WIEM, CO TU SIE DZIEJE
+  ////////////*
+
+
+
+  //DO PRZENIESIENIA
+
+
+
+  ///////////////////*
+
+  //display user's data (without password) in the admin's page
   if($mode=="3")
   {
     //--------------------------------------------------------------------------

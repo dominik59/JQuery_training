@@ -186,7 +186,7 @@ $( document ).ready(function() {
 	      success: function(data)          //on recieve of reply
 	      {
 	      	//alert(data);
-//alert about succes of adding a new Doctor to he DataBase
+//alert about succes of adding a new Doctor to the DataBase
 	      	var status = data;
 	      	if(data==true)
 	      	{

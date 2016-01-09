@@ -25,6 +25,7 @@
 	<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
 	<!--/miejsce na pliki js-->
 
+
 	<script>
 	    $(document).bind('mobileinit',function(){
 	        $.mobile.changePage.defaults.changeHash = false;
@@ -33,9 +34,15 @@
 	    });
 	</script> 
 
+
 </head>
 <body >
 <script src="js/scripts.js"></script> <!--skryptów obsługujących to co dzieje się na stronie-->
+	<!-- 
+
+	panel logowania użytkownika 
+
+	-->
 	<div data-role="page" id="page1" >
 	    <div data-role="header" id="header">
 	         <h1 id="header_text_id">Strona logowania do platformy u-DUŚ</h1>
@@ -52,6 +59,7 @@
 				<div data-role="fieldcontain">
 			    	<input type="password" name="password" id="password_id" value=""  />
 				</div>	
+				<!-- button do odkrycia znaków hasła -->
 				<div data-role="fieldcontain" id="flip_switch_div_id">
 					<label for="flip-3" id="flip3_label_id">Pokaż hasło:</label>
 					<select name="flip_switch" id="flip_switch_id" data-role="slider" data-theme="b">
@@ -65,12 +73,18 @@
 	    </div>
 	    </center>
 	    <center>
+	    <!-- stopka -->
 	    	<div id="footer1" data-role="footer">
 	        Autorzy:Anna Gawor, Dominik Pawlik
 	   		</div>
 	    </center>
 	</div>
 
+	<!-- 
+
+	panel admina 
+
+	-->
 	<div data-role="page" id="admin_page">
 	   	<div data-role="header" id="header">
 		    <h1 id="header_text_id">Panel Administracyjny</h1>
@@ -80,12 +94,13 @@
 			<div id="space_id"></div> 
 		   	<div>
 		   		<ul data-role="listview" data-theme="g">
+		   		<!-- możliwe zadania do wykonania -->
 			   		<li data-role="list-divider" role="heading" class="ui-li ui-li-divider ui-bar-b">Administracja</li>
 					<li><a href="#add_new_doctor_page">Dodaj lekarza</a></li>
 					<li><a href="#add_new_nurse_page">Dodaj pielęgniarkę</a></li>
 					<li><a id="delete_doctor_button" href="#delete_doctor_page">Usuń pracownika</a></li>				
 					<li><a id="show_all_employees_button" href="#show_all_employees">Wyświetl dane pracowników</a></li>
-					<li><a href="#change_employees_permission">Zmień upawnienia użytkownika</a></li>
+					<li><a href="#change_employees_permission">Zmień uprawnienia użytkownika</a></li>
 				</ul>
 		   	</div>
 		   	<script type="text/javascript">
@@ -102,6 +117,11 @@
 		</div><!-- /footer -->
 	</div>  
 
+	<!-- 
+
+	panel pielęgniarki
+
+	 -->
 	<div data-role="page" id="nurse_page">
 	   	<div data-role="header" id="header">
 		    <h1 id="header_text_id">Panel użytkownika</h1>
@@ -122,7 +142,11 @@
 			</div><!-- /navbar -->
 		</div><!-- /footer --> 
 	</div>
+	<!-- 
 
+	panel lekarza 
+
+	-->
 	<div data-role="page" id="doctor_page">
 	   	<div data-role="header" id="header">
 		    <h1 id="header_text_id">Panel użytkownika</h1>
@@ -144,6 +168,11 @@
 		</div><!-- /footer --> 
 	</div>
 
+	<!-- 
+
+	dodanie nowego panelu lekarza z pozycji admina 
+
+	-->
 	<div data-role="page" id="add_new_doctor_page">
 	   	<div data-role="header" id="header">
 		    <h1 id="header_text_id">Dodawanie Lekarza</h1>
@@ -154,6 +183,8 @@
 		    <!--pocz -->
 		    <div>
 		   		<ul data-role="listview" data-theme="g">
+
+		   		<!-- wpisanie daych potrzebnych do utworzenia konta lekarza: login, haslo, imie, nazwisko, data zatrudniania -->
 		    		<li data-role="fieldcontain" class="ui-field-contain ui-body ui-br ui-li ui-li-static ui-body-c">
 		    		<label style="border:none" for="add_new_doctor_login" class="ui-input-text">Login:</label>
 		    		<input type="text" name="name" id="add_new_doctor_login" value="" class="ui-input-text ui-body-c ui-corner-all ui-shadow-inset"></li>
@@ -170,7 +201,7 @@
 					<li><a  id="add_new_doctor_button" data-rel="dialog" data-transition="flip" href="#pop_up_page">Zatwierdź</a></li>
 		    	</ul>
 		    </div>
-		    <!--koni -->
+		    <!--koniec -->
 	  		<script type="text/javascript">
 	  		
 	  		</script>
@@ -185,6 +216,11 @@
 		</div><!-- /footer --> 
 	</div>
 
+	<!-- 
+
+	dodanie nowego panelu pielęgniarki z pozycji admina 
+
+	-->
 	<div data-role="page" id="add_new_nurse_page">
 	   	<div data-role="header" id="header">
 		    <h1 id="header_text_id">Dodawanie Pielęgniarki</h1>
@@ -195,6 +231,8 @@
 		    <!--pocz -->
 		    <div>
 		   		<ul data-role="listview" data-theme="g">
+
+		   		<!-- wpisanie daych potrzebnych do utworzenia konta pielęgniarki: login, haslo, imie, nazwisko, data zatrudniania -->
 		    		<li data-role="fieldcontain" class="ui-field-contain ui-body ui-br ui-li ui-li-static ui-body-c">
 		    		<label style="border:none" for="add_new_nurse_login" class="ui-input-text">Login:</label>
 		    		<input type="text" name="name" id="add_new_nurse_login" value="" class="ui-input-text ui-body-c ui-corner-all ui-shadow-inset"></li>
@@ -226,18 +264,26 @@
 		</div><!-- /footer --> 
 	</div>
 
-	
+	<!-- 
+
+	usunięcie istniejącego panelu pracownika z pozycji admina poprzez wpisanie odpowiadającego mu loginu
+
+	-->
 	<div data-role="page" id="delete_doctor_page">
 	   	<div data-role="header" id="header">
 		    <h1 id="header_text_id">Usuwanie pracownika</h1>
 		</div> 	
 		<div data-role="content" id="content2">
 			<img id="doctor_img" src="images/doctor.jpg" alt="Admin Panel">
+			
 			<ul data-role="listview" data-theme="g">
+			<!-- wpisaywanie loginu pracownika, do usunięcia konta -->
 				<li data-role="fieldcontain" class="ui-field-contain ui-body ui-br ui-li ui-li-static ui-body-c">
 					<label style="border:none" for="surname" class="ui-input-text"><b>Login do usunięcia:</b></label></li>
 				<li data-role="fieldcontain" class="ui-field-contain ui-body ui-br ui-li ui-li-static ui-body-c">
 		    		<input type="text" name="surname" id="delete_doctor_login" value="" class="ui-input-text ui-body-c ui-corner-all ui-shadow-inset"></li>
+
+		    		<!-- podgląd zatrudnionych pracowników -->
 				<li data-role="fieldcontain" class="ui-field-contain ui-body ui-br ui-li ui-li-static ui-body-c">
 					<label style="border:none" for="surname" class="ui-input-text"><b>Aktualnie zatrudnieni pracownicy:</b></label></li>
 				<li data-role="fieldcontain" class="ui-field-contain ui-body ui-br ui-li ui-li-static ui-body-c">
@@ -275,6 +321,11 @@
 		</div><!-- /footer --> 
 	</div>
 
+	<!-- 
+
+	podgląd danych zatrudnionych pracowników z pozycji admina
+
+	-->
 	<div data-role="page" id="show_all_employees">
 		<div data-role="header" id="header" data-theme="b">
 			
@@ -293,13 +344,19 @@
 			<div data-role="navbar">
 				<ul>
 					<li><a data-icon="back" href="#admin_page">Cofnij</a></li>
-					<li><a id="delete_user_accept"data-icon="check" href="#pop_up_page" data-rel="dialog" data-transition="flip">Akceptuj</a></li>
+					<!-- TUTAJ AKCEPTUJ JEST NIEPOTRZEBNE :) -->
+					<!-- <li><a id="delete_user_accept"data-icon="check" href="#pop_up_page" data-rel="dialog" data-transition="flip">Akceptuj</a></li> -->
 					
 				</ul>
 			</div><!-- /navbar -->
 		</div><!-- /footer --> 
 	</div>
 
+	<!-- 
+
+	zmiana uprawnień pracowników z pozycji administratra
+
+	-->
 	<div data-role="page" id="change_employees_permission">
 		<div data-role="header" id="header" data-theme="b">
 			
@@ -314,6 +371,7 @@
 			<div data-role="navbar">
 				<ul>
 					<li><a data-icon="back" href="#admin_page">Cofnij</a></li>
+					<!--  AKCEPTUJEMY USUNIECIE Z BAZY UZYTKOWNIKA -->
 					<li><a id="delete_user_accept"data-icon="check" href="#pop_up_page" data-rel="dialog" data-transition="flip">Akceptuj</a></li>
 					
 				</ul>
