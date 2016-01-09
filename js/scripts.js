@@ -101,11 +101,11 @@ $( document ).ready(function() {
 	      		//alert(data[i]);
 	      		if(permission=="doctor")
 	      		{
-	      			document.getElementById('delete_doctor_page_ul').innerHTML=document.getElementById('delete_doctor_page_ul').innerHTML+'<li style="background:#fff"data-role="fieldcontain" class="ui-field-contain ui-body ui-br ui-li ui-li-static ui-body-c"> <label style="border:none" for="add_new_doctor_login" class="ui-input-text"><b>'+'Login: </b>'+login+'<b> Imie i Nazwisko: </b>'+name+' '+surname+'</label></li>';
+	      			document.getElementById('delete_doctor_page_ul').innerHTML=document.getElementById('delete_doctor_page_ul').innerHTML+'<li style="background:#fff"data-role="fieldcontain" class="ui-field-contain ui-body ui-br ui-li ui-li-static ui-body-c"> <label style="border:none" for="add_new_doctor_login" class="ui-input-text"><b>'+'Login: </b>'+login+'<b><br> Imie i Nazwisko: </b>'+name+' '+surname+'</label></li>';
 	      		}
 	      		if(permission=="nurse")
 	      		{
-	      			document.getElementById('delete_nurse_page_ul').innerHTML=document.getElementById('delete_nurse_page_ul').innerHTML+'<li style="background:#fff"data-role="fieldcontain" class="ui-field-contain ui-body ui-br ui-li ui-li-static ui-body-c"> <label style="border:none" for="add_new_doctor_login" class="ui-input-text"><b>'+'Login: </b>'+login+'<b> Imie i Nazwisko: </b>'+name+' '+surname+'</label></li>';
+	      			document.getElementById('delete_nurse_page_ul').innerHTML=document.getElementById('delete_nurse_page_ul').innerHTML+'<li style="background:#fff"data-role="fieldcontain" class="ui-field-contain ui-body ui-br ui-li ui-li-static ui-body-c"> <label style="border:none" for="add_new_doctor_login" class="ui-input-text"><b>'+'Login: </b>'+login+'<b><br> Imie i Nazwisko: </b>'+name+' '+surname+'</label></li>';
 	      		}
 	      		
 	      	}
@@ -256,14 +256,13 @@ $( document ).ready(function() {
 //////////////////////////////add_new_nurse_page
 
 
-//////////////////////////////show_new_employees
+//////////////////////////////show_all_employees
 $(document).ready(function() {
 	$('#show_all_employees_button').on("click",function(){
 		var mode = 3;
-    	//var json = [{"col1":"row1", "col2":"row1", "col3":"row1","col4":"col4","col5":"col4","col6":"col4","col7":"col4"}, {"col1":"row2", "col2":"row2", "col3":"row2"}, {"col1":"row2", "col2":"row2", "col3":"row2"},{"col1":"row2", "col2":"row2", "col3":"row2"},{"col1":"row2", "col2":"row2", "col3":"row2"},{"col1":"row2", "col2":"row2", "col3":"row2"},{"col1":"row2", "col2":"row2", "col3":"row2"}]; 
    		$.ajax({ 
 		  type:"POST",                                     
-	      url: 'php/delete_user.php',                  //the script to call to get data          
+    	  url: 'php/delete_user.php',                  //the script to call to get data          
 	      data: {mode:mode},
 	                              //you can insert url argumnets here to pass to api.php
 	                                       //for example "id=5&parent=6"
@@ -297,4 +296,4 @@ $(document).ready(function() {
     
 
 });
-//////////////////////////////show_new_employees
+//////////////////////////////show_all_employees
