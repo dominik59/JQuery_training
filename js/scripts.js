@@ -1,20 +1,25 @@
 
-//////////////////////////strona główna
+//main page
 $( document ).ready(function() {
 	$('#button1').on('click',function(){
 		var login = $('#login_id').val();
+		/*
+		AJAX allows reloading page's parts, when user can still use our page (because it's often an asychronius process).
+		*/
 		$.ajax({ 
 		  type:"POST",                                     
-	      url: 'php/singing_in.php',                  //the script to call to get data          
+	      url: 'php/singing_in.php',        //the script to call to get data          
 	      data: {login},
-	                              //you can insert url argumnets here to pass to api.php
-	                                       //for example "id=5&parent=6"
-	      dataType: 'json',                //data format      
-	      success: function(data)          //on recieve of reply
+	                              			//you can insert url argumnets here to pass to api.php
+	                                        //for example "id=5&parent=6"
+	      dataType: 'json',                 //data format      
+	      success: function(data)           //on recieve of reply
 	      {
 	      	//alert(data[0][0]);
 	      	var pass = data[0][0];
 	      	var perm = data[0][1];
+
+	      	//check the permission and load a proper page
 	      	if($('#password_id').val()==pass)
 	      	{
 	      		if(perm=="admin")
@@ -39,6 +44,7 @@ $( document ).ready(function() {
 				
 	});
 
+	//visibility of the password's characters 
     $( "#flip_switch_id" ).on( 'slidestop', function() {
     	
     	if($("#flip_switch_id").val()=="Tak")
@@ -54,6 +60,7 @@ $( document ).ready(function() {
     	}
     });
 
+    //settings of the buttton to change visibility of the password
 	$("#flip_switch_div_id").hide();
 	$("#button1").prop("disabled",true);
 	$("#button1").prop("disabled",false);
@@ -64,7 +71,7 @@ $( document ).ready(function() {
 		$("#flip_switch_div_id").hide(500);
 	});
 });
-//////////////////////////////strona główna
+//////////////////////////////end of main page
 
 
 //////////////////////////////admin_page
@@ -77,15 +84,15 @@ $( document ).ready(function() {
 //////////////////////////////nurse_page
 
 
-//////////////////////////////delete_user
+//////////////////////////////start delete_user from the admin position
 $( document ).ready(function() {
 	$('#delete_doctor_button').bind("click",function(){
 	var name=1;
 	$.ajax({ 
 		  type:"POST",                                     
-	      url: 'php/delete_user.php',                  //the script to call to get data          
+	      url: 'php/delete_user.php',       //the script to call to get data          
 	      data: {mode: "1"},
-	                              //you can insert url argumnets here to pass to api.php
+	                              			//you can insert url argumnets here to pass to api.php
 	                                       //for example "id=5&parent=6"
 	      dataType: 'json',                //data format      
 	      success: function(data)          //on recieve of reply
@@ -114,12 +121,14 @@ $( document ).ready(function() {
 	        
 	      } 
 	    });
-	
+	//delete a doctor
 	document.getElementById('delete_doctor_page_ul').innerHTML='<li data-role="fieldcontain" class="ui-field-contain ui-body ui-br ui-li ui-li-static ui-body-c"> <label style="border:none" for="add_new_doctor_login" class="ui-input-text">'+'<b>Aktualnie zatrudnieni doktorzy:</b>'+'</label></li>';
+	//delete a nurse
 	document.getElementById('delete_nurse_page_ul').innerHTML='<li data-role="fieldcontain" class="ui-field-contain ui-body ui-br ui-li ui-li-static ui-body-c"> <label style="border:none" for="add_new_doctor_login" class="ui-input-text">'+'<b>Aktualnie zatrudnione pielęgniarki:</b>'+'</label></li>';
 	});
 //document.getElementById('delete_doctor_page_div').innerHTML='<li style="background:#fff" data-role="fieldcontain" class="ui-field-contain ui-body ui-br ui-li ui-li-static ui-body-c">		    		<label style="border:none" for="add_new_doctor_login" class="ui-input-text"><b>Login osoby do usunięcia:</b></label></li>		 <li style="background:#fff" data-role="fieldcontain" class="ui-field-contain ui-body ui-br ui-li ui-li-static ui-body-c">   		<input type="text" name="name" id="add_new_doctor_login" value="" class="ui-input-text ui-body-c ui-corner-all ui-shadow-inset"></li>';
 });
+
 
 $( document ).ready(function() {
 	$('#delete_user_accept').bind("click",function(){
@@ -131,6 +140,8 @@ $( document ).ready(function() {
 	                              //you can insert url argumnets here to pass to api.php
 	                                       //for example "id=5&parent=6"
 	      dataType: 'json',                //data format      
+	      
+//alert about succes/ failure of deleting the user	    
 	      success: function(data)          //on recieve of reply
 	      {
 	      	if(data==true)
@@ -150,18 +161,20 @@ $( document ).ready(function() {
 	});
 });
 
-//////////////////////////////delete_user
+//////////////////////////////end of delete_user
 
 
-//////////////////////////////add_new_doctor_page
+//////////////////////////////start add_new_doctor_page
 $( document ).ready(function() {
 	$('#add_new_doctor_button').on('click',function(){
+
+		//Doctor's data
 		var login= $('#add_new_doctor_login').val();
 		var password= $('#add_new_doctor_password').val();
 		var name = $('#add_new_doctor_name').val();
 		var surname = $('#add_new_doctor_surname').val();
 		var curdate = $('#add_new_doctor_date_input').val();
-		var mode=1;
+		var mode=1; //doctor
 		//alert(curdate);
 		$.ajax({ 
 		  type:"POST",                                     
@@ -173,6 +186,7 @@ $( document ).ready(function() {
 	      success: function(data)          //on recieve of reply
 	      {
 	      	//alert(data);
+//alert about succes of adding a new Doctor to he DataBase
 	      	var status = data;
 	      	if(data==true)
 	      	{
@@ -202,17 +216,18 @@ $( document ).ready(function() {
 	    }); 
 	});
 });
-//////////////////////////////add_new_doctor_page
+//////////////////////////////end of add_new_doctor_page
 
-//////////////////////////////add_new_nurse_page
+//////////////////////////////start add_new_nurse_page
 $( document ).ready(function() {
 	$('#add_new_nurse_button').on('click',function(){
+		//Nurse's data
 		var login= $('#add_new_nurse_login').val();
 		var password= $('#add_new_nurse_password').val();
 		var name = $('#add_new_nurse_name').val();
 		var surname = $('#add_new_nurse_surname').val();
 		var curdate = $('#add_new_nurse_date_input').val();
-		var mode=2;
+		var mode=2; // it's a Nurse
 		//alert(curdate);
 		$.ajax({ 
 		  type:"POST",                                     
@@ -224,6 +239,7 @@ $( document ).ready(function() {
 	      success: function(data)          //on recieve of reply
 	      {
 	      	//alert(data);
+//alert about a succes of adding a new Nurse to the DataBase
 	      	var status = data;
 	      	if(data==true)
 	      	{
@@ -253,13 +269,13 @@ $( document ).ready(function() {
 	    }); 
 	});
 });
-//////////////////////////////add_new_nurse_page
+////////////////////////////// end of add_new_nurse_page
 
 
-//////////////////////////////show_all_employees
+//////////////////////////////start show_all_employees
 $(document).ready(function() {
 	$('#show_all_employees_button').on("click",function(){
-		var mode = 3;
+		var mode = 3;// all employees
    		$.ajax({ 
 		  type:"POST",                                     
     	  url: 'php/delete_user.php',                  //the script to call to get data          
@@ -272,7 +288,7 @@ $(document).ready(function() {
 	      	//alert(data);
 	      	var json = data;
 	      	//alert(json);
-
+//display data of hired employees
 	      	$('#example').columns({
 	      		data:json,
 	      		schema: [
@@ -296,4 +312,4 @@ $(document).ready(function() {
     
 
 });
-//////////////////////////////show_all_employees
+//////////////////////////////end of show_all_employees
