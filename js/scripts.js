@@ -1,6 +1,6 @@
 
 /*****************************************************************************
-* Name : scripts.js
+* Name : scripts /js/
 * This module is reflected main page.
 *
 ******************************************************************************/
@@ -349,4 +349,6 @@ $(document).ready(function() {
     
 
 });
-//////////////////////////////end of show_all_employees
+/**
+* end of show_all_employees
+**/

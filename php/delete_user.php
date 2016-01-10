@@ -1,7 +1,7 @@
 <?php 
 
 /*****************************************************************************
-* Name: delete_user.php
+* Name: delete user /php/
 * This module contains routines
 * to delete an existing user from the Data Base.
 * You can easily delete a Doctor or a Nurse from the DB from Admin position.

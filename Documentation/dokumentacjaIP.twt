@@ -9,7 +9,7 @@
  <Title>True</Title>
  <Links>True</Links>
  <Api>True</Api>
- <Style>standard_silver</Style>
+ <Style>standard_olive</Style>
  <SumCon>1</SumCon>
  <IncludeSourceLocation>False</IncludeSourceLocation>
  <IncludeLastGenerated>False</IncludeLastGenerated>
@@ -18,9 +18,9 @@
  <GenerateHtmlHelpFiles>False</GenerateHtmlHelpFiles>
  <Collapsible>False</Collapsible>
  <EmbedStyle>False</EmbedStyle>
- <SortSections>False</SortSections>
+ <SortSections>True</SortSections>
  <SortFilenames>False</SortFilenames>
- <IncludeProjectTitle>False</IncludeProjectTitle>
+ <IncludeProjectTitle>True</IncludeProjectTitle>
  <BoldTitles>True</BoldTitles>
  <ContentsTitle>Contents</ContentsTitle>
  <SummaryTitle>Summary</SummaryTitle>
@@ -39,18 +39,18 @@
 </Comments>
 <RelDestPath></RelDestPath>
 <Book>
- <HomeChapter>scripts.js</HomeChapter>
- <IndexTitle>IPProjectDocumentation</IndexTitle>
- <IndexText></IndexText>
+ <HomeChapter>index.html</HomeChapter>
+ <IndexTitle>uDUS Documetation</IndexTitle>
+ <IndexText>by G&P</IndexText>
  <Copyright></Copyright>
+<C><N>index.html</N><R>..\</R></C>
+<C><N>scripts.js</N><R>..\js\</R></C>
 <C><N>add_user.php</N><R>..\php\</R></C>
 <C><N>DB.php</N><R>..\php\</R></C>
 <C><N>delete_user.php</N><R>..\php\</R></C>
 <C><N>singing_in.php</N><R>..\php\</R></C>
-<C><N>singing_in_temp.php</N><R>..\php\</R></C>
 <C><N>user_name.php</N><R>..\php\</R></C>
 <C><N>user_name_connection.php</N><R>..\php\</R></C>
-<C><N>scripts.js</N><R>..\js\</R></C>
 </Book>
 </TwinTextProject>
 

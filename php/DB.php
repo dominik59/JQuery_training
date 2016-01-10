@@ -1,7 +1,7 @@
 <?php  
 
 /*****************************************************************************
-* Name : DB.php
+* Name : DB /php/
 * This module contains routines
 * to set the connection with the Data Base
 *

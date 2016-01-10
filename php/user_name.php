@@ -1,6 +1,6 @@
 <?php
 /*****************************************************************************
-* Name : user_name.php
+* Name : user name /php/
 * This module contains routines
 * to Get the user data from the DataBase.
 * 

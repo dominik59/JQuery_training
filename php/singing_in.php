@@ -1,7 +1,7 @@
 <?php 
 
 /*****************************************************************************
-* Module: signing_in
+* Module: signing in /php/
 * This module contains routines
 * to let the user to sign into the platform uDUS.
 *

@@ -1,6 +1,6 @@
 <?php
 /*****************************************************************************
-* Name : add_user.php
+* Name : add user /php/
 * This module contains routines
 * to add a new user to the Data Base.
 * You can easily add a new /Doctor/ or a /Nurse/ to the DB from *Admin* position

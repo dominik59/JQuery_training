@@ -1,6 +1,6 @@
 <?php
 /*****************************************************************************
-* Name : user_name_connection.php
+* Name : user name connection /php/
 * This module contains routines
 * to make connection with the Data Base.
 * 
