@@ -1,6 +1,14 @@
 <?php
-/*
-Get the user data from the DataBase
+/*****************************************************************************
+* Name : user_name.php
+* This module contains routines
+* to Get the user data from the DataBase.
+* 
+******************************************************************************/
+
+/**
+* Module: Get Data
+* Get the user data from the DataBase
 */
 if(isset($_POST['login'])=== true && empty($_POST['login'])===false)
 {

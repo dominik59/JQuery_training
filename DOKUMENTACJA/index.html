@@ -1,0 +1,394 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<!--skrypt umożliwiający natychmiastową aktualizację po zmianach w kodzie-->
+	<script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>
+	<!--/skrypt umożliwiający natychmiastową aktualizację po zmianach w kodzie-->
+
+	
+
+	<!--miejsce na pliki css-->
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+    <link rel="stylesheet" href="view.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<link rel="stylesheet" href="css/classic.css"> 
+	<!--/miejsce na pliki css-->
+	
+	<!--miejsce na pliki js-->
+	<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+	<script src="//code.jquery.com/ui/1.11.4/jquery-ui.
+	js"></script>
+	<script src="js/jquery.columns.min.js"></script>
+	<script src="js/jquery.columns.min.js"></script>
+	<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+	<!--/miejsce na pliki js-->
+
+
+	<script>
+	    $(document).bind('mobileinit',function(){
+	        $.mobile.changePage.defaults.changeHash = false;
+	        $.mobile.hashListeningEnabled = false;
+	        $.mobile.pushStateEnabled = false;
+	    });
+	</script> 
+
+
+</head>
+<body >
+<script src="js/scripts.js"></script> <!--skryptów obsługujących to co dzieje się na stronie-->
+	<!-- 
+
+	panel logowania użytkownika 
+
+	-->
+	<div data-role="page" id="page1" >
+	    <div data-role="header" id="header">
+	         <h1 id="header_text_id">Strona logowania do platformy u-DUŚ</h1>
+	    </div>
+	    <center>
+	    <div data-role="content" id="content1">
+		    
+		    	<label id="login_label_id">Login:</label>
+				<div data-role="fieldcontain">
+			    <input type="text" name="login" id="login_id" value=""  />
+				</div>
+
+				<label id="pass_label_id" for="password">Hasło:</label>	
+				<div data-role="fieldcontain">
+			    	<input type="password" name="password" id="password_id" value=""  />
+				</div>	
+				<!-- button do odkrycia znaków hasła -->
+				<div data-role="fieldcontain" id="flip_switch_div_id">
+					<label for="flip-3" id="flip3_label_id">Pokaż hasło:</label>
+					<select name="flip_switch" id="flip_switch_id" data-role="slider" data-theme="b">
+						<option value="Nie">Nie</option>
+						<option value="Tak">Tak</option>
+					</select> 
+				</div>
+				<a href="#" id="button1" class="ui-btn">Zaloguj</a>
+				
+			
+	    </div>
+	    </center>
+	    <center>
+	    <!-- stopka -->
+	    	<div id="footer1" data-role="footer">
+	        Autorzy:Anna Gawor, Dominik Pawlik
+	   		</div>
+	    </center>
+	</div>
+
+	<!-- 
+
+	panel admina 
+
+	-->
+	<div data-role="page" id="admin_page">
+	   	<div data-role="header" id="header">
+		    <h1 id="header_text_id">Panel Administracyjny</h1>
+		</div> 	
+		<div data-role="content" id="content2">
+			<div><img id="admin_img" src="images/admin.png" alt="Admin Panel"></div>
+			<div id="space_id"></div> 
+		   	<div>
+		   		<ul data-role="listview" data-theme="g">
+		   		<!-- możliwe zadania do wykonania -->
+			   		<li data-role="list-divider" role="heading" class="ui-li ui-li-divider ui-bar-b">Administracja</li>
+					<li><a href="#add_new_doctor_page">Dodaj lekarza</a></li>
+					<li><a href="#add_new_nurse_page">Dodaj pielęgniarkę</a></li>
+					<li><a id="delete_doctor_button" href="#delete_doctor_page">Usuń pracownika</a></li>				
+					<li><a id="show_all_employees_button" href="#show_all_employees">Wyświetl dane pracowników</a></li>
+					<li><a href="#change_employees_permission">Zmień uprawnienia użytkownika</a></li>
+				</ul>
+		   	</div>
+		   	<script type="text/javascript">
+		  		
+		  	</script>
+		</div>	
+	   	<div id="footer" data-role="footer" data-theme="b" data-iconpos="top" data-id="foo1" data-position="fixed">
+			<div data-role="navbar">
+				<ul>
+					<li><a data-icon="alert" href="#page1">Wyloguj</a></li>
+					
+				</ul>
+			</div><!-- /navbar -->
+		</div><!-- /footer -->
+	</div>  
+
+	<!-- 
+
+	panel pielęgniarki
+
+	 -->
+	<div data-role="page" id="nurse_page">
+	   	<div data-role="header" id="header">
+		    <h1 id="header_text_id">Panel użytkownika</h1>
+		</div> 	
+		<div data-role="content" id="content2">
+			<img id="nurse_img" src="images/nurse.jpg" alt="Admin Panel">
+		    
+	  		<script type="text/javascript">
+	  		
+	  		</script>
+		</div>
+	    <div id="footer" data-role="footer" data-theme="b" data-iconpos="top" data-id="foo1" data-position="fixed">
+			<div data-role="navbar">
+				<ul>
+					<li><a data-icon="alert" href="#page1">Wyloguj</a></li>
+					
+				</ul>
+			</div><!-- /navbar -->
+		</div><!-- /footer --> 
+	</div>
+	<!-- 
+
+	panel lekarza 
+
+	-->
+	<div data-role="page" id="doctor_page">
+	   	<div data-role="header" id="header">
+		    <h1 id="header_text_id">Panel użytkownika</h1>
+		</div> 	
+		<div data-role="content" id="content2">
+			<img id="doctor_img" src="images/doctor.jpg" alt="Admin Panel">
+		    
+	  		<script type="text/javascript">
+	  		
+	  		</script>
+		</div>
+	    <div id="footer" data-role="footer" data-theme="b" data-iconpos="top" data-id="foo1" data-position="fixed">
+			<div data-role="navbar">
+				<ul>
+					<li><a data-icon="alert" href="#page1">Wyloguj</a></li>
+					
+				</ul>
+			</div><!-- /navbar -->
+		</div><!-- /footer --> 
+	</div>
+
+	<!-- 
+
+	dodanie nowego panelu lekarza z pozycji admina 
+
+	-->
+	<div data-role="page" id="add_new_doctor_page">
+	   	<div data-role="header" id="header">
+		    <h1 id="header_text_id">Dodawanie Lekarza</h1>
+		</div> 	
+		<div data-role="content" id="content2">
+			<img id="doctor_img" src="images/doctor.jpg" alt="Admin Panel">
+		    
+		    <!--pocz -->
+		    <div>
+		   		<ul data-role="listview" data-theme="g">
+
+		   		<!-- wpisanie daych potrzebnych do utworzenia konta lekarza: login, haslo, imie, nazwisko, data zatrudniania -->
+		    		<li data-role="fieldcontain" class="ui-field-contain ui-body ui-br ui-li ui-li-static ui-body-c">
+		    		<label style="border:none" for="add_new_doctor_login" class="ui-input-text">Login:</label>
+		    		<input type="text" name="name" id="add_new_doctor_login" value="" class="ui-input-text ui-body-c ui-corner-all ui-shadow-inset"></li>
+		    		<li data-role="fieldcontain" class="ui-field-contain ui-body ui-br ui-li ui-li-static ui-body-c">
+		    		<label style="border:none" for="name" class="ui-input-text">Hasło:</label>
+		    		<input type="text" name="add_new_doctor_password" id="add_new_doctor_password" value="" class="ui-input-text ui-body-c ui-corner-all ui-shadow-inset"></li>
+		    		<li data-role="fieldcontain" class="ui-field-contain ui-body ui-br ui-li ui-li-static ui-body-c">
+		    		<label style="border:none" for="name" class="ui-input-text">Imie:</label>
+		    		<input type="text" name="name" id="add_new_doctor_name" value="" class="ui-input-text ui-body-c ui-corner-all ui-shadow-inset"></li>
+		    		<li data-role="fieldcontain" class="ui-field-contain ui-body ui-br ui-li ui-li-static ui-body-c"><label style="border:none" for="surname" class="ui-input-text">Nazwisko:</label>
+		    		<input type="text" name="surname" id="add_new_doctor_surname" value="" class="ui-input-text ui-body-c ui-corner-all ui-shadow-inset"></li>
+		    		<li data-role="fieldcontain" class="ui-field-contain ui-body ui-br ui-li ui-li-static ui-body-c"><label for="date">Data zatrudnienia:</label>
+					<input type="date" name="date" id="add_new_doctor_date_input" value=""  ></li>
+					<li><a  id="add_new_doctor_button" data-rel="dialog" data-transition="flip" href="#pop_up_page">Zatwierdź</a></li>
+		    	</ul>
+		    </div>
+		    <!--koniec -->
+	  		<script type="text/javascript">
+	  		
+	  		</script>
+		</div>
+	    <div id="footer" data-role="footer" data-theme="b" data-iconpos="top" data-id="foo1" data-position="fixed">
+			<div data-role="navbar">
+				<ul>
+					<li><a data-icon="delete" href="#admin_page">Anuluj</a></li>
+					
+				</ul>
+			</div><!-- /navbar -->
+		</div><!-- /footer --> 
+	</div>
+
+	<!-- 
+
+	dodanie nowego panelu pielęgniarki z pozycji admina 
+
+	-->
+	<div data-role="page" id="add_new_nurse_page">
+	   	<div data-role="header" id="header">
+		    <h1 id="header_text_id">Dodawanie Pielęgniarki</h1>
+		</div> 	
+		<div data-role="content" id="content2">
+			<img id="nurse_img" src="images/nurse.jpg" alt="Add new nurse panel">
+		    
+		    <!--pocz -->
+		    <div>
+		   		<ul data-role="listview" data-theme="g">
+
+		   		<!-- wpisanie daych potrzebnych do utworzenia konta pielęgniarki: login, haslo, imie, nazwisko, data zatrudniania -->
+		    		<li data-role="fieldcontain" class="ui-field-contain ui-body ui-br ui-li ui-li-static ui-body-c">
+		    		<label style="border:none" for="add_new_nurse_login" class="ui-input-text">Login:</label>
+		    		<input type="text" name="name" id="add_new_nurse_login" value="" class="ui-input-text ui-body-c ui-corner-all ui-shadow-inset"></li>
+		    		<li data-role="fieldcontain" class="ui-field-contain ui-body ui-br ui-li ui-li-static ui-body-c">
+		    		<label style="border:none" for="name" class="ui-input-text">Hasło:</label>
+		    		<input type="text" name="add_new_nurse_password" id="add_new_nurse_password" value="" class="ui-input-text ui-body-c ui-corner-all ui-shadow-inset"></li>
+		    		<li data-role="fieldcontain" class="ui-field-contain ui-body ui-br ui-li ui-li-static ui-body-c">
+		    		<label style="border:none" for="name" class="ui-input-text">Imie:</label>
+		    		<input type="text" name="name" id="add_new_nurse_name" value="" class="ui-input-text ui-body-c ui-corner-all ui-shadow-inset"></li>
+		    		<li data-role="fieldcontain" class="ui-field-contain ui-body ui-br ui-li ui-li-static ui-body-c"><label style="border:none" for="surname" class="ui-input-text">Nazwisko:</label>
+		    		<input type="text" name="surname" id="add_new_nurse_surname" value="" class="ui-input-text ui-body-c ui-corner-all ui-shadow-inset"></li>
+		    		<li data-role="fieldcontain" class="ui-field-contain ui-body ui-br ui-li ui-li-static ui-body-c"><label for="date">Data zatrudnienia:</label>
+					<input type="date" name="date" id="add_new_nurse_date_input" value=""  ></li>
+					<li><a  id="add_new_nurse_button" data-rel="dialog" data-transition="flip" href="#pop_up_page">Zatwierdź</a></li>
+		    	</ul>
+		    </div>
+		    <!--koni -->
+	  		<script type="text/javascript">
+	  		
+	  		</script>
+		</div>
+	    <div id="footer" data-role="footer" data-theme="b" data-iconpos="top" data-id="foo1" data-position="fixed">
+			<div data-role="navbar">
+				<ul>
+					<li><a data-icon="delete" href="#admin_page">Anuluj</a></li>
+					
+				</ul>
+			</div><!-- /navbar -->
+		</div><!-- /footer --> 
+	</div>
+
+	<!-- 
+
+	usunięcie istniejącego panelu pracownika z pozycji admina poprzez wpisanie odpowiadającego mu loginu
+
+	-->
+	<div data-role="page" id="delete_doctor_page">
+	   	<div data-role="header" id="header">
+		    <h1 id="header_text_id">Usuwanie pracownika</h1>
+		</div> 	
+		<div data-role="content" id="content2">
+			<img id="doctor_img" src="images/doctor.jpg" alt="Admin Panel">
+			
+			<ul data-role="listview" data-theme="g">
+			<!-- wpisaywanie loginu pracownika, do usunięcia konta -->
+				<li data-role="fieldcontain" class="ui-field-contain ui-body ui-br ui-li ui-li-static ui-body-c">
+					<label style="border:none" for="surname" class="ui-input-text"><b>Login do usunięcia:</b></label></li>
+				<li data-role="fieldcontain" class="ui-field-contain ui-body ui-br ui-li ui-li-static ui-body-c">
+		    		<input type="text" name="surname" id="delete_doctor_login" value="" class="ui-input-text ui-body-c ui-corner-all ui-shadow-inset"></li>
+
+		    		<!-- podgląd zatrudnionych pracowników -->
+				<li data-role="fieldcontain" class="ui-field-contain ui-body ui-br ui-li ui-li-static ui-body-c">
+					<label style="border:none" for="surname" class="ui-input-text"><b>Aktualnie zatrudnieni pracownicy:</b></label></li>
+				<li data-role="fieldcontain" class="ui-field-contain ui-body ui-br ui-li ui-li-static ui-body-c">
+				    <div data-role="collapsible">
+					   <h3>Lekarze</h3>
+					   <ul id="delete_doctor_page_ul" data-role="listview" data-theme="g">
+					    	
+					   </ul>
+					</div>
+				</li>
+				<li data-role="fieldcontain" class="ui-field-contain ui-body ui-br ui-li ui-li-static ui-body-c">
+				    <div data-role="collapsible" >
+					   <h3>Pielęgniarki</h3>
+					   <ul id="delete_nurse_page_ul" data-role="listview" data-theme="g">
+					    	
+					   </ul>
+					</div>
+				</li>
+
+			</ul>
+			    
+			
+	  		<script type="text/javascript">
+	  		
+	  		</script>
+		</div>
+	    <div id="footer" data-role="footer" data-theme="b" data-iconpos="top" data-id="foo1" data-position="fixed">
+			<div data-role="navbar">
+				<ul>
+					<li><a data-icon="back" href="#admin_page">Cofnij</a></li>
+					<li><a id="delete_user_accept"data-icon="check" href="#pop_up_page" data-rel="dialog" data-transition="flip">Akceptuj</a></li>
+					
+				</ul>
+			</div><!-- /navbar -->
+		</div><!-- /footer --> 
+	</div>
+
+	<!-- 
+
+	podgląd danych zatrudnionych pracowników z pozycji admina
+
+	-->
+	<div data-role="page" id="show_all_employees">
+		<div data-role="header" id="header" data-theme="b">
+			
+			<h1 id="header_text_id">Wyświetlanie wszystkich pracowników</h1>      
+			   
+		</div>
+		<div data-role="content" id="content3" data-theme="b">
+			<ul data-role="listview" data-theme="a">
+			<li  id="example" data-role="fieldcontain" class="ui-field-contain ui-body ui-br ui-li ui-li-static ui-body-c">
+				<div > </div>
+			</li>
+			</ul>
+			   
+		</div>
+		<div id="footer" data-role="footer" data-theme="b" data-iconpos="top" data-id="foo1" data-position="fixed">
+			<div data-role="navbar">
+				<ul>
+					<li><a data-icon="back" href="#admin_page">Cofnij</a></li>
+					<!-- TUTAJ AKCEPTUJ JEST NIEPOTRZEBNE :) -->
+					<!-- <li><a id="delete_user_accept"data-icon="check" href="#pop_up_page" data-rel="dialog" data-transition="flip">Akceptuj</a></li> -->
+					
+				</ul>
+			</div><!-- /navbar -->
+		</div><!-- /footer --> 
+	</div>
+
+	<!-- 
+
+	zmiana uprawnień pracowników z pozycji administratra
+
+	-->
+	<div data-role="page" id="change_employees_permission">
+		<div data-role="header" id="header" data-theme="b">
+			
+			<h1 id="header_text_id">Zmiana uprawnień użytkowników</h1>      
+			   
+		</div>
+		<div data-role="content" id="content2" data-theme="b">
+			
+			   
+		</div>
+		<div id="footer" data-role="footer" data-theme="b" data-iconpos="top" data-id="foo1" data-position="fixed">
+			<div data-role="navbar">
+				<ul>
+					<li><a data-icon="back" href="#admin_page">Cofnij</a></li>
+					<!--  AKCEPTUJEMY USUNIECIE Z BAZY UZYTKOWNIKA -->
+					<li><a id="delete_user_accept"data-icon="check" href="#pop_up_page" data-rel="dialog" data-transition="flip">Akceptuj</a></li>
+					
+				</ul>
+			</div><!-- /navbar -->
+		</div><!-- /footer --> 
+	</div> <!--change_employees_permission-->
+
+	<div data-role="page" id="pop_up_page">
+		<div data-role="content" data-theme="b">
+			
+			<h1 id="pop_up_h1"></h1>
+			<p id="pop_up_p"></p>
+			<a href="#admin_page" data-theme="b" data-transition="flip" data-role="button">OK!</a>      
+			   
+		</div>
+	</div>
+	
+	
+</body>
+</html>

@@ -1,23 +1,42 @@
 <?php 
 
-  //--------------------------------------------------------------------------
-  // Example php script for fetching data from mysql database
-  //--------------------------------------------------------------------------
-  include "DB.php";
+/*****************************************************************************
+* Name: delete_user.php
+* This module contains routines
+* to delete an existing user from the Data Base.
+* You can easily delete a Doctor or a Nurse from the DB from Admin position.
+*
+******************************************************************************/
+
 
 /*
-  Delete user from the Data Base
-  */
+** Example php script for fetching data from mysql database
+*/
+include "DB.php";
 
+/*
+** Parameters:
+** mode - Mode which specify what is needed to do: 1) getting data from the DB; 
+**        2) deleting user from the DB
+** login - Login of user, who will be deleted from the Data Base
+**/
   $mode="";
   $login="";
   
+/*
+* Module: Settings
+* Set default data
+**/
   if(isset($_POST['mode'])=== true)
   {
     $mode=$_POST['mode'];
   }
 
-  //query to find and get all data from table, which name is stored in variable "tableName"
+  /***********************************************
+  * Module: Get data from DB
+  * Query to find and get all data from table, 
+  * which name is stored in variable "tableName"
+  ************************************************/
   if($mode=="1")
   {
     //--------------------------------------------------------------------------
@@ -43,7 +62,11 @@
     echo json_encode($data);
   }
 
-  //query to delete user's data from the DataBase, whose login is transfered by variable "login"
+  /***********************************************************
+  * Module:  Delete user
+  * Query to delete user's data from the DataBase, 
+  * whose login is transfered by variable "login"
+  ***********************************************************/
   if($mode=="2")
   {
     if(isset($_POST['login'])=== true)
@@ -69,17 +92,24 @@
     //--------------------------------------------------------------------------
     echo json_encode($result);
   }
-  ////////////*
+ 
 
 
+/*
+!!!!!!!!!!!!
+!!!!!!!!!!!!!
 
   //DO PRZENIESIENIA
+!!!!!!!!!!!!!!
 
+!!!!!!!!!!!
+*/
 
-
-  ///////////////////*
-
-  //display user's data (without password) in the admin's page
+  /*****************************************************
+  * Module: Display user
+  * Display user's data (without password) -> login, permission, data of starting job, name and surname
+  * in the admin's page
+  *****************************************************/
   if($mode=="3")
   {
     //--------------------------------------------------------------------------

@@ -1,15 +1,21 @@
 
-//main page
+/*****************************************************************************
+* Name : scripts.js
+* This module is reflected main page.
+*
+******************************************************************************/
+
 $( document ).ready(function() {
 	$('#button1').on('click',function(){
 		var login = $('#login_id').val();
-		/*
-		AJAX allows reloading page's parts, when user can still use our page (because it's often an asychronius process).
-		*/
-		$.ajax({ 
-		  type:"POST",                                     
-	      url: 'php/singing_in.php',        //the script to call to get data          
-	      data: {login},
+		/**
+		* Function: Ajax
+		* AJAX allows reloading page's parts, when user can still use our page (because it's often an asychronius process).
+		**/
+		{{ $.ajax({   					}} // te {{ }} są po to, by generator pominal to przy dokumentacji
+		  {{ type:"POST",               }}
+	      {{ url: 'php/singing_in.php', }} //the script to call to get data          
+	      {{ data: {login},   			}}
 	                              			//you can insert url argumnets here to pass to api.php
 	                                        //for example "id=5&parent=6"
 	      dataType: 'json',                 //data format      
@@ -19,7 +25,10 @@ $( document ).ready(function() {
 	      	var pass = data[0][0];
 	      	var perm = data[0][1];
 
-	      	//check the permission and load a proper page
+	      	/**
+	      	* Module: Check permission
+	      	* Check the permission and load a proper page
+	      	**/
 	      	if($('#password_id').val()==pass)
 	      	{
 	      		if(perm=="admin")
@@ -43,8 +52,10 @@ $( document ).ready(function() {
 
 				
 	});
-
-	//visibility of the password's characters 
+	/**
+	* Module: Visibility Button
+	* Button to cover up the password's characters.
+	**/
     $( "#flip_switch_id" ).on( 'slidestop', function() {
     	
     	if($("#flip_switch_id").val()=="Tak")
@@ -74,6 +85,15 @@ $( document ).ready(function() {
 //////////////////////////////end of main page
 
 
+
+/***********************************************moze porozdzielac te strony-> 
+*osobno dla admina, pielegniarki, i lekarza - w sensie, ze kazdy modul w osobnym skrypcie?
+******************************************
+*/
+
+
+
+
 //////////////////////////////admin_page
 
 //////////////////////////////admin_page
@@ -84,14 +104,17 @@ $( document ).ready(function() {
 //////////////////////////////nurse_page
 
 
-//////////////////////////////start delete_user from the admin position
+/**
+* Module: Delete user
+* Delete user from the /Admin/ position.
+**/
 $( document ).ready(function() {
 	$('#delete_doctor_button').bind("click",function(){
 	var name=1;
-	$.ajax({ 
-		  type:"POST",                                     
-	      url: 'php/delete_user.php',       //the script to call to get data          
-	      data: {mode: "1"},
+	{{ $.ajax({ 						 }} 
+		  {{ type:"POST",                }}
+	      {{ url: 'php/delete_user.php', }}        //the script to call to get data          
+	      {{ data: {mode: "1"},			 }}
 	                              			//you can insert url argumnets here to pass to api.php
 	                                       //for example "id=5&parent=6"
 	      dataType: 'json',                //data format      
@@ -133,10 +156,10 @@ $( document ).ready(function() {
 $( document ).ready(function() {
 	$('#delete_user_accept').bind("click",function(){
 	var login=$('#delete_doctor_login').val();
-	$.ajax({ 
-		  type:"POST",                                     
-	      url: 'php/delete_user.php',                  //the script to call to get data          
-	      data: {mode: "2", login:login},
+	{{ $.ajax({ 							}} 
+		 {{ type:"POST",                    }}
+	     {{ url: 'php/delete_user.php', 	}}                 //the script to call to get data          
+	     {{ data: {mode: "2", login:login}, }}
 	                              //you can insert url argumnets here to pass to api.php
 	                                       //for example "id=5&parent=6"
 	      dataType: 'json',                //data format      
@@ -161,10 +184,14 @@ $( document ).ready(function() {
 	});
 });
 
-//////////////////////////////end of delete_user
+/**
+* end of delete_user
+**/
 
-
-//////////////////////////////start add_new_doctor_page
+/**
+* Module: Add Doctor
+* Add new Doctor's page from the /Admin/ position. 
+**/
 $( document ).ready(function() {
 	$('#add_new_doctor_button').on('click',function(){
 
@@ -176,10 +203,10 @@ $( document ).ready(function() {
 		var curdate = $('#add_new_doctor_date_input').val();
 		var mode=1; //doctor
 		//alert(curdate);
-		$.ajax({ 
-		  type:"POST",                                     
-	      url: 'php/add_user.php',                  //the script to call to get data          
-	      data: {mode:mode, login:login, password:password, name:name, surname:surname, curdate:curdate},
+		{{ $.ajax({ 					}}
+		  {{ type:"POST",  				}}                                   
+	      {{ url: 'php/add_user.php',	}}                 //the script to call to get data          
+	      {{ data: {mode:mode, login:login, password:password, name:name, surname:surname, curdate:curdate},}}
 	                              //you can insert url argumnets here to pass to api.php
 	                                       //for example "id=5&parent=6"
 	      dataType: 'json',                //data format      
@@ -216,9 +243,14 @@ $( document ).ready(function() {
 	    }); 
 	});
 });
-//////////////////////////////end of add_new_doctor_page
+/**
+* end of add_new_doctor_page
+**/
 
-//////////////////////////////start add_new_nurse_page
+/**
+* Module: Add Nurse
+* Add new Nurse's page from the /Admin/ position. 
+**/
 $( document ).ready(function() {
 	$('#add_new_nurse_button').on('click',function(){
 		//Nurse's data
@@ -229,10 +261,10 @@ $( document ).ready(function() {
 		var curdate = $('#add_new_nurse_date_input').val();
 		var mode=2; // it's a Nurse
 		//alert(curdate);
-		$.ajax({ 
-		  type:"POST",                                     
-	      url: 'php/add_user.php',                  //the script to call to get data          
-	      data: {mode:mode, login:login, password:password, name:name, surname:surname, curdate:curdate},
+		{{ $.ajax({ 					}}
+		  {{ type:"POST",     			}}                               
+	      {{ url: 'php/add_user.php', 	}}                  //the script to call to get data          
+	      {{ data: {mode:mode, login:login, password:password, name:name, surname:surname, curdate:curdate}, }}
 	                              //you can insert url argumnets here to pass to api.php
 	                                       //for example "id=5&parent=6"
 	      dataType: 'json',                //data format      
@@ -269,17 +301,22 @@ $( document ).ready(function() {
 	    }); 
 	});
 });
-////////////////////////////// end of add_new_nurse_page
+/**
+* end of add_new_nurse_page
+**/
 
 
-//////////////////////////////start show_all_employees
+/**
+* Module: Show employees
+* Display all hired employees from the /Admin/ position.
+**/
 $(document).ready(function() {
 	$('#show_all_employees_button').on("click",function(){
 		var mode = 3;// all employees
-   		$.ajax({ 
-		  type:"POST",                                     
-    	  url: 'php/delete_user.php',                  //the script to call to get data          
-	      data: {mode:mode},
+   		 {{ $.ajax({ 					  }} 
+		  {{ type:"POST",    			  }}                                
+    	  {{ url: 'php/delete_user.php',  }}                //the script to call to get data          
+	      {{ data: {mode:mode}, 		  }}
 	                              //you can insert url argumnets here to pass to api.php
 	                                       //for example "id=5&parent=6"
 	      dataType: 'json',                //data format      
