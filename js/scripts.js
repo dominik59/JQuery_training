@@ -12,8 +12,21 @@ $( document ).ready(function() {
 		  width: document.getElementById('space_id').clientWidth
 		  
 		}
+		$.fn.peity.defaults.bar = {
+		  delimiter: ",",
+		  fill: ["#4d89f9"],
+		  height: 200,
+		  max: null,
+		  min: 0,
+		  padding: 0.1,
+		  width: document.getElementById('space_id').clientWidth
+		}
 		
-		$(".line").peity("line");
+		$(".bar-colours-2").peity("bar",{
+			fill:function(value){
+				return value > 0 ? "yellow" : "red"
+			}
+		});
 	});
 });
 //////////////////////////niezależne od strony
@@ -31,10 +44,10 @@ $( document ).ready(function() {
 		* Function: Ajax
 		* AJAX allows reloading page's parts, when user can still use our page (because it's often an asychronius process).
 		**/
-		{{ $.ajax({   					}} // te {{ }} są po to, by generator pominal to przy dokumentacji
-		  {{ type:"POST",               }}
-	      {{ url: 'php/singing_in.php', }} //the script to call to get data          
-	      {{ data: {login},   			}}
+		 $.ajax({   					 // te {{ }} są po to, by generator pominal to przy dokumentacji
+		   type:"POST",               
+	       url: 'php/singing_in.php',  //the script to call to get data          
+	       data: {login:login},   			
 	                              			//you can insert url argumnets here to pass to api.php
 	                                        //for example "id=5&parent=6"
 	      dataType: 'json',                 //data format      
@@ -130,10 +143,10 @@ $( document ).ready(function() {
 $( document ).ready(function() {
 	$('#delete_doctor_button').bind("click",function(){
 	var name=1;
-	{{ $.ajax({ 						 }} 
-		  {{ type:"POST",                }}
-	      {{ url: 'php/delete_user.php', }}        //the script to call to get data          
-	      {{ data: {mode: "1"},			 }}
+	 $.ajax({ 						  
+		   type:"POST",                
+	       url: 'php/delete_user.php',         //the script to call to get data          
+	       data: {mode: "1"},			 
 	                              			//you can insert url argumnets here to pass to api.php
 	                                       //for example "id=5&parent=6"
 	      dataType: 'json',                //data format      
@@ -175,10 +188,10 @@ $( document ).ready(function() {
 $( document ).ready(function() {
 	$('#delete_user_accept').bind("click",function(){
 	var login=$('#delete_doctor_login').val();
-	{{ $.ajax({ 							}} 
-		 {{ type:"POST",                    }}
-	     {{ url: 'php/delete_user.php', 	}}                 //the script to call to get data          
-	     {{ data: {mode: "2", login:login}, }}
+	 $.ajax({ 							 
+		  type:"POST",                    
+	      url: 'php/delete_user.php', 	                 //the script to call to get data          
+	      data: {mode: "2", login:login}, 
 	                              //you can insert url argumnets here to pass to api.php
 	                                       //for example "id=5&parent=6"
 	      dataType: 'json',                //data format      
@@ -222,10 +235,10 @@ $( document ).ready(function() {
 		var curdate = $('#add_new_doctor_date_input').val();
 		var mode=1; //doctor
 		//alert(curdate);
-		{{ $.ajax({ 					}}
-		  {{ type:"POST",  				}}                                   
-	      {{ url: 'php/add_user.php',	}}                 //the script to call to get data          
-	      {{ data: {mode:mode, login:login, password:password, name:name, surname:surname, curdate:curdate},}}
+		 $.ajax({ 					
+		   type:"POST",  				                                   
+	       url: 'php/add_user.php',	               //the script to call to get data          
+	       data: {mode:mode, login:login, password:password, name:name, surname:surname, curdate:curdate},
 	                              //you can insert url argumnets here to pass to api.php
 	                                       //for example "id=5&parent=6"
 	      dataType: 'json',                //data format      
@@ -280,10 +293,10 @@ $( document ).ready(function() {
 		var curdate = $('#add_new_nurse_date_input').val();
 		var mode=2; // it's a Nurse
 		//alert(curdate);
-		{{ $.ajax({ 					}}
-		  {{ type:"POST",     			}}                               
-	      {{ url: 'php/add_user.php', 	}}                  //the script to call to get data          
-	      {{ data: {mode:mode, login:login, password:password, name:name, surname:surname, curdate:curdate}, }}
+		 $.ajax({ 					
+		   type:"POST",     			                               
+	       url: 'php/add_user.php', 	                  //the script to call to get data          
+	       data: {mode:mode, login:login, password:password, name:name, surname:surname, curdate:curdate}, 
 	                              //you can insert url argumnets here to pass to api.php
 	                                       //for example "id=5&parent=6"
 	      dataType: 'json',                //data format      
@@ -332,10 +345,10 @@ $( document ).ready(function() {
 $(document).ready(function() {
 	$('#show_all_employees_button').on("click",function(){
 		var mode = 3;// all employees
-   		 {{ $.ajax({ 					  }} 
-		  {{ type:"POST",    			  }}                                
-    	  {{ url: 'php/delete_user.php',  }}                //the script to call to get data          
-	      {{ data: {mode:mode}, 		  }}
+   		  $.ajax({ 					   
+		   type:"POST",    			                                  
+    	   url: 'php/delete_user.php',                  //the script to call to get data          
+	       data: {mode:mode}, 		  
 	                              //you can insert url argumnets here to pass to api.php
 	                                       //for example "id=5&parent=6"
 	      dataType: 'json',                //data format      
