@@ -1,6 +1,14 @@
 <?php
-/*
-Check the data (login, password) during the user logging
+/*****************************************************************************
+* Name : user name /php/
+* This module contains routines
+* to Get the user data from the DataBase.
+* 
+******************************************************************************/
+
+/**
+* Module: Get Data
+* Get the user data from the DataBase
 */
 if(isset($_POST['login'])=== true && empty($_POST['login'])===false)
 {
