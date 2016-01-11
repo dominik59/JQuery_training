@@ -1,3 +1,22 @@
+//////////////////////////niezależne od strony
+$( document ).ready(function() {
+	$('#change_employees_permission_button').on("click",function(){
+		$.fn.peity.defaults.line = {
+		  delimiter: ",",
+		  fill: "#c6d9fd",
+		  height: 200,
+		  max: null,
+		  min: 0,
+		  stroke: "#4d89f9",
+		  strokeWidth: 1,
+		  width: document.getElementById('space_id').clientWidth
+		  
+		}
+		
+		$(".line").peity("line");
+	});
+});
+//////////////////////////niezależne od strony
 
 //////////////////////////strona główna
 $( document ).ready(function() {
