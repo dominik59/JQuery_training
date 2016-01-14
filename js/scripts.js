@@ -384,3 +384,53 @@ $(document).ready(function() {
 /**
 * end of show_all_employees
 **/
+
+//////////////////////////////////change_employees_permission
+
+$(document).ready(function(){
+	
+	
+	//$( "#selectable" ).selectable();
+	//$( "#selectable" ).on( "selectableselected", function( event, ui ) {a.push(ui.selected.innerHTML);a=_.uniq(a);console.log(a);/*alert(_.uniq(a));*/} );
+	$('#change_employees_permission_button').on("click",function(){
+		
+		$.ajax({ 						  
+		   type:"POST",                
+	       url: 'php/delete_user.php',         //the script to call to get data          
+	       data: {mode: "4"},			 
+	                              			//you can insert url argumnets here to pass to api.php
+	                                       //for example "id=5&parent=6"
+	      dataType: 'json',                //data format      
+	      success: function(data)          //on recieve of reply
+	      {
+	      	//alert(data);
+	      	for (i in data){
+	      		var login=data[i][0];
+	      		var name=data[i][1];
+	      		var surname=data[i][2];
+	      		//alert(data[i]);
+		      	$("#selectable").append("<li>" + login + ' ' + name + ' ' + surname + "</li>");
+	      		
+	      	}
+	      	//document.getElementById('delete_doctor_page_div').innerHTML=document.getElementById('delete_doctor_page_div').innerHTML+'<li style="background:#fff" data-role="fieldcontain" class="ui-field-contain ui-body ui-br ui-li ui-li-static ui-body-c">		    		<label style="border:none" for="add_new_doctor_login" class="ui-input-text">Wpisz login osoby do usunięcia:</label>		 <br>   		<input type="text" name="name" id="add_new_doctor_login" value="" class="ui-input-text ui-body-c ui-corner-all ui-shadow-inset"></li>';
+	      	
+	        
+	      } 
+	    });
+	});
+	
+	$( "#selectable" ).selectable({
+      stop: function() {
+        var a=[];
+        $( ".ui-selected", this ).each(function() {
+          var index = $( "#selectable li" ).index( this );
+          a.push(( index + 1 ) );
+
+        });
+        console.log(a);
+      }
+    });
+});
+
+
+//////////////////////////////////change_employees_permission

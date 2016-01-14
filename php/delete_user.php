@@ -134,6 +134,22 @@ include "DB.php";
     //--------------------------------------------------------------------------
     echo json_encode($data);
   }
+  if($mode=="4")
+  {
+    $con = mysql_connect($host,$user,$pass);
+    $dbs = mysql_select_db($databaseName, $con);
+
+    $result = mysql_query("SELECT login, Imie, Nazwisko FROM $tableName " );          //query
+    while ( $row = mysql_fetch_row($result) )
+    {
+      $data[] = $row;
+    }
+    
+    //--------------------------------------------------------------------------
+    // 3) echo result as json 
+    //--------------------------------------------------------------------------
+    echo json_encode($data);
+  }
   
 
 ?>
