@@ -219,8 +219,18 @@
 
 #selectable { list-style-type: none; margin: 0; padding: 0; min-width: 400px; width: 100%; }
 
-#selectable li { margin: 3px; padding: 0.8em; font-size: 1em; height: 18px; }
+#selectable li { cursor: pointer; cursor: hand; margin: 3px; padding: 0.8em; font-size: 1em; height: 18px;  border: 1px solid black; background: #373737; }
+
+
+#selectable1 .ui-selecting { background: #FECA40; }
+
+#selectable1 .ui-selected { background: #F39814; color: white; }
+
+#selectable1 { list-style-type: none; margin: 0; padding: 0; min-width: 400px; width: 100%; }
+
+#selectable1 li { cursor: pointer; cursor: hand; margin: 3px; padding: 0.8em; font-size: 1em; height: 18px;  border: 1px solid black; background: #373737; }
 
 div.ui-block-a{
     min-width:400px;
+   
 }
