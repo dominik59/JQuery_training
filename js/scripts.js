@@ -393,7 +393,8 @@ $(document).ready(function(){
 	//$( "#selectable" ).selectable();
 	//$( "#selectable" ).on( "selectableselected", function( event, ui ) {a.push(ui.selected.innerHTML);a=_.uniq(a);console.log(a);/*alert(_.uniq(a));*/} );
 	$('#change_employees_permission_button').on("click",function(){
-		
+		$("#selectable").empty();
+		$("#selectable1").empty();
 		$.ajax({ 						  
 		   type:"POST",                
 	       url: 'php/delete_user.php',         //the script to call to get data          
@@ -418,12 +419,29 @@ $(document).ready(function(){
 	      } 
 	    });
 	});
+
+	$('#change_employees_permission_button').on("click",function(){
+		$("#selectable1").append("<li>" +'Pielęgniarka'+ "</li>");
+		$("#selectable1").append("<li>" +'Lekarz'+ "</li>");
+		$("#selectable1").append("<li>" +'Administrator'+ "</li>");
+	});
 	
 	$( "#selectable" ).selectable({
       stop: function() {
         var a=[];
         $( ".ui-selected", this ).each(function() {
           var index = $( "#selectable li" ).index( this );
+          a.push(( index + 1 ) );
+
+        });
+        console.log(a);
+      }
+    });
+    $( "#selectable1" ).selectable({
+      stop: function() {
+        var a=[];
+        $( ".ui-selected", this ).each(function() {
+          var index = $( "#selectable1 li" ).index( this );
           a.push(( index + 1 ) );
 
         });
