@@ -4,7 +4,9 @@
 <head>
 	<meta charset="UTF-8">
 	<!--skrypt umożliwiający natychmiastową aktualizację po zmianach w kodzie-->
-	<script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>
+
+	<!--<script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>-->
+	
 	<!--/skrypt umożliwiający natychmiastową aktualizację po zmianach w kodzie-->
 
 	
@@ -15,9 +17,18 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 	<link rel="stylesheet" href="css/classic.css"> 
 	<!--/miejsce na pliki css-->
+
 	
+
 	<!--miejsce na pliki js-->
 	<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+	<script>
+	    $(document).bind('mobileinit',function(){
+	        $.mobile.changePage.defaults.changeHash = false;
+	        $.mobile.hashListeningEnabled = false;
+	        $.mobile.pushStateEnabled = false;
+	    });
+	</script> 
 	<script src="//code.jquery.com/ui/1.11.4/jquery-ui.
 	js"></script>
 	<script src="js/jquery.columns.min.js"></script>
@@ -28,13 +39,7 @@
 	<!--/miejsce na pliki js-->
 
 
-	<script>
-	    $(document).bind('mobileinit',function(){
-	        $.mobile.changePage.defaults.changeHash = false;
-	        $.mobile.hashListeningEnabled = false;
-	        $.mobile.pushStateEnabled = false;
-	    });
-	</script> 
+	
 
 
 </head>
@@ -372,16 +377,17 @@
 				<fieldset class="ui-grid-a" >
 					<div class="ui-block-a">
 					<h1>Wybierz użytkownika(ów)</h1>
-					<ul>	
-						<ol id="selectable">
+					<input type="text" data-theme="a" id="change_employees_text">
+					<ul id="selectable">	
+						<ol >
 							
 						</ol>
 					</ul>
 					</div>
 					<div class="ui-block-b">
 						<h1>Wybierz nową funkcję</h1>
-						<ul>	
-						<ol id="selectable1">
+						<ul id="selectable1">	
+						<ol >
 							
 						</ol>
 					</ul>
@@ -398,7 +404,7 @@
 				<ul>
 					<li><a data-icon="back" href="#admin_page">Cofnij</a></li>
 					<!--  AKCEPTUJEMY USUNIECIE Z BAZY UZYTKOWNIKA -->
-					<li><a id="delete_user_accept"data-icon="check" href="#pop_up_page" data-rel="dialog" data-transition="flip">Akceptuj</a></li>
+					<li><a id="change_user_permission_accept"data-icon="check" href="#pop_up_page" data-rel="dialog" data-transition="flip">Akceptuj</a></li>
 					
 				</ul>
 			</div><!-- /navbar -->
