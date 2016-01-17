@@ -84,7 +84,7 @@ include "DB.php";
     // 2) Query database for data
     //--------------------------------------------------------------------------
     
-    $result = mysql_query("DELETE FROM $tableName WHERE $tableName.login='".$login."';" );          //query
+    $result = mysql_query("DELETE * FROM $tableName WHERE $tableName.login='".$login."';" );          //query
     
     
     //--------------------------------------------------------------------------
