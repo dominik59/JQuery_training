@@ -393,6 +393,8 @@ $(document).ready(function(){
 	
 	//$( "#selectable" ).selectable();
 	//$( "#selectable" ).on( "selectableselected", function( event, ui ) {a.push(ui.selected.innerHTML);a=_.uniq(a);console.log(a);/*alert(_.uniq(a));*/} );
+	x=0;
+	nr_of_users=0;
 	$('#change_employees_permission_button').on("click",function(){
 		$("#selectable").empty();
 		$("#selectable1").empty();
@@ -412,7 +414,7 @@ $(document).ready(function(){
 	      		var surname=data[i][2];
 	      		//alert(data[i]);
 		      	$("#selectable").append("<li"+" id=\"selectable_row"+ i +'\"'+">" + login + ' ' + name + ' ' + surname + "</li>");
-	      		
+	      		nr_of_users=nr_of_users+1;
 	      	}
 	      	//document.getElementById('delete_doctor_page_div').innerHTML=document.getElementById('delete_doctor_page_div').innerHTML+'<li style="background:#fff" data-role="fieldcontain" class="ui-field-contain ui-body ui-br ui-li ui-li-static ui-body-c">		    		<label style="border:none" for="add_new_doctor_login" class="ui-input-text">Wpisz login osoby do usunięcia:</label>		 <br>   		<input type="text" name="name" id="add_new_doctor_login" value="" class="ui-input-text ui-body-c ui-corner-all ui-shadow-inset"></li>';
 	      	
@@ -455,38 +457,32 @@ $(document).ready(function(){
     });
 
     $("#change_user_permission_accept").on("click",function(){
-    	$.ajax({ 						  
-		   type:"POST",                
-	       url: 'php/delete_user.php',         //the script to call to get data          
-	       data: {mode: "4"},			 
-	                              			//you can insert url argumnets here to pass to api.php
-	                                       //for example "id=5&parent=6"
-	      dataType: 'json',                //data format      
-	      success: function(data)          //on recieve of reply
-	      {
-	      	//alert(data);
-	      	for (i in data){
-	      		var login=data[i][0];
-	      		var name=data[i][1];
-	      		var surname=data[i][2];
-	      		//alert(data[i]);
-		      	$("#selectable").append("<li>" + login + ' ' + name + ' ' + surname + "</li>");
-		    }
-	      	//document.getElementById('delete_doctor_page_div').innerHTML=document.getElementById('delete_doctor_page_div').innerHTML+'<li style="background:#fff" data-role="fieldcontain" class="ui-field-contain ui-body ui-br ui-li ui-li-static ui-body-c">		    		<label style="border:none" for="add_new_doctor_login" class="ui-input-text">Wpisz login osoby do usunięcia:</label>		 <br>   		<input type="text" name="name" id="add_new_doctor_login" value="" class="ui-input-text ui-body-c ui-corner-all ui-shadow-inset"></li>';
-	      	
-	        
-	      } 
-	    });
+    	
+    	
 		
     });
 
-	var x=1;
+	
 	$('#change_employees_text').bind("input",function(){
 		
 		//console.log($("#change_employees_text").val());
-		
+		var temp='';
+		x=0;
+		for (var i=0;i<nr_of_users;i++)
+		{
+			//console.log(nr_of_users);
+			temp=$('#selectable_row'+x).text().toLowerCase();
+			//console.log();
+			//alert(typeof(temp));
+			if(temp.indexOf($('#change_employees_text').val())==-1)
+			{
+				$("#selectable_row"+x).hide();
+			}
+			x++;
+			//console.log(i);
+		}
 		$("#selectable_row"+x).hide();
-		x++;
+		
 		
 	});
 });

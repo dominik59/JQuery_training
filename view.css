@@ -237,3 +237,8 @@ div.ui-block-a{
 }
 
 
+.scrollingContainer{
+    height:350px;
+    overflow: scroll;
+    overflow-x: hidden
+}
