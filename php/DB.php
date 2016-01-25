@@ -38,4 +38,10 @@
 
   $databaseName = "przychodnia";
   $tableName = "uzytkownicy";
+  $patientsTable="pacjenci";
+  $choroba_table="choroba";
+  $godziny_przyjecTable="gondziny_przyjec";
+  $receptaTable="recepta";
+  $skierowanieTable="skierowanie";
+  $wizytaTable="wizyta";
 ?>

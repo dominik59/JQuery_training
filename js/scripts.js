@@ -54,8 +54,10 @@ $( document ).ready(function() {
 	      success: function(data)           //on recieve of reply
 	      {
 	      	//alert(data[0][0]);
-	      	var pass = data[0][0];
-	      	var perm = data[0][1];
+	      	cur_usr_id=data[0][0];
+
+	      	var pass = data[0][1];
+	      	var perm = data[0][2];
 
 	      	/**
 	      	* Module: Check permission
@@ -384,6 +386,59 @@ $(document).ready(function() {
 });
 /**
 * end of show_all_employees
+**/
+
+
+/**
+* Module: Show patients
+* Display all patients assigned to certain doctor.
+**/
+$(document).ready(function() {
+	$('#show_all_patients_button').on("click",function(){
+		var mode = 1;// all patients
+   		  $.ajax({ 					   
+		   type:"POST",    			                                  
+    	   url: 'php/patients.php',                  //the script to call to get data          
+	       data: {mode:mode,id:cur_usr_id}, 		  
+	                              //you can insert url argumnets here to pass to api.php
+	                                       //for example "id=5&parent=6"
+	      dataType: 'json',                //data format      
+	      success: function(data)          //on recieve of reply
+	      {
+	      	//alert(data);
+	      	var json = data;
+	      	console.log(json);
+	      	//alert(json);
+//display data of hired employees
+	      	$('#show_all_patient_list').columns({
+	      		data:json,
+	      		schema: [
+                  {"header":"PESEL", "key":"0"},
+                  {"header":"Imie", "key":"1"},
+                  {"header":"Nazwisko", "key":"2"},
+                  {"header":"Nr. tel", "key":"3"},
+                  {"header":"Miejscowość", "key":"4"},
+                  {"header":"Kod pocztowy", "key":"5"},
+                  {"header":"Ulica", "key":"6"},
+                  {"header":"Nr domu", "key":"7"},
+                  {"header":"Nr mieszkania", "key":"8"}
+              ]
+	      		
+		    });
+		    //alert(document.getElementById('example').innerHTML);
+	      	
+	        
+	      }
+	    });
+	});
+	
+	
+
+    
+
+});
+/**
+* end of show_all_patients
 **/
 
 //////////////////////////////////change_employees_permission

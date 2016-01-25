@@ -49,7 +49,7 @@ $dbs = mysql_select_db($databaseName, $con);
 // 2) Query database for data
 //--------------------------------------------------------------------------
 
-$result = mysql_query("SELECT uzytkownicy.haslo,uzytkownicy.permission FROM $tableName WHERE uzytkownicy.login ='".$logi."'" );          //query
+$result = mysql_query("SELECT uzytkownicy.id_pracownika,uzytkownicy.haslo,uzytkownicy.permission FROM $tableName WHERE uzytkownicy.login ='".$logi."'" );          //query
 while ( $row = mysql_fetch_row($result) )
 {
   $data[] = $row;
