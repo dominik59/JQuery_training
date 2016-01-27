@@ -7,6 +7,15 @@
     div.container {
         width: 80%;
     }
+.ui-page-theme-a a:visited, html .ui-bar-a a:visited, html .ui-body-a a:visited, html body .ui-group-theme-a a:visited {
+    color: #fff;
+}
+#doctor_page_callendar {
+        max-width: 900px;
+        margin: 0 auto;
+        font-family: "Lucida Grande",Helvetica,Arial,Verdana,sans-serif;
+        
+}
  #page1.ui-page{
     background: url(images/backg.jpg) no-repeat center center fixed; 
     -webkit-background-size: cover;
@@ -81,6 +90,39 @@
     background-size:100% 100%;
     
 }
+#show_all_patient_page.ui-page {
+    background: url(images/backg.jpg) no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    background-size:100% 100%;
+    
+}
+#show_all_patients_nurse_page.ui-page {
+    background: url(images/backg.jpg) no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    background-size:100% 100%;
+}
+#add_patient_nurse_page{
+    background: url(images/backg.jpg) no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    background-size:100% 100%;
+}
+#show_doctors_callendar_page{
+    background: url(images/backg.jpg) no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    background-size:100% 100%;
+}
 #change_employees_permission.ui-page {
     background: url(images/backg.jpg) no-repeat center center fixed; 
     -webkit-background-size: cover;
@@ -124,6 +166,7 @@
 	background-size: 100% 100%;
 	border-radius: 25px;
 }
+
 #admin_img{
 	display: block;
 	margin-left: auto;
@@ -145,6 +188,16 @@
     width:325px;
     height:260px;
 }
+#patient_img
+{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 29px;
+    width:250px;
+    height:250px;
+    border-radius: 5px;
+}
 #space_id{
 	height:15px;
 }
@@ -153,8 +206,9 @@
 	font-size: 10px;
 	text-shadow: none;
 	min-width: 300px;
-	background: url(images/loginbg.jpg);
+	background: transparent;
 	background-size: 100% 100%;
+    border: none;
 	border-radius: 25px;
 }
 
@@ -186,9 +240,9 @@
 	
 	font-weight: normal;
 	border: none;
-	color: black;
+	color: white;
 	font-size: 25px;
-	background: linear-gradient(#3a5795, #496cb6,#3a5795);
+	/*background: linear-gradient(#3a5795, #496cb6,#3a5795);*/
 	text-shadow:none;
 	width: 90px;
 	display:block;
@@ -200,9 +254,9 @@
 	font-weight: normal;
 	font-size: 25px;
 	text-shadow:none;
-	color: black;
+	color: white;
 	border: none;
-	background: linear-gradient(#3a5795, #496cb6,#3a5795);
+	/*background: linear-gradient(#3a5795, #496cb6,#3a5795);*/
 	border-radius: 20px;
 	width: 90px;
 }
@@ -234,4 +288,11 @@
 div.ui-block-a{
     min-width:400px;
    
+}
+
+
+.scrollingContainer{
+    height:350px;
+    overflow: scroll;
+    overflow-x: hidden
 }

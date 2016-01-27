@@ -4,22 +4,38 @@
 <head>
 	<meta charset="UTF-8">
 	<!--skrypt umożliwiający natychmiastową aktualizację po zmianach w kodzie-->
-	<script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>
+
+	<!--<script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>-->
+	
 	<!--/skrypt umożliwiający natychmiastową aktualizację po zmianach w kodzie-->
 
 	
 
 	<!--miejsce na pliki css-->
+	<link href='css/fullcalendar.css' rel='stylesheet' />
+	<link href='css/fullcalendar.print.css' rel='stylesheet' media='print' />
     <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
     <link rel="stylesheet" href="view.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-	<link rel="stylesheet" href="css/classic.css"> 
-	<!--/miejsce na pliki css-->
+	<link rel="stylesheet" href="css/classic.css">
 	
+	<!--/miejsce na pliki css-->
+
+	
+
 	<!--miejsce na pliki js-->
 	<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+	<script>
+	    $(document).bind('mobileinit',function(){
+	        $.mobile.changePage.defaults.changeHash = false;
+	        $.mobile.hashListeningEnabled = false;
+	        $.mobile.pushStateEnabled = false;
+	    });
+	</script> 
 	<script src="//code.jquery.com/ui/1.11.4/jquery-ui.
 	js"></script>
+	<script src='js/moment.min.js'></script>
+	<script src='js/fullcalendar.min.js'></script>
 	<script src="js/jquery.columns.min.js"></script>
 	<script src="js/jquery.columns.min.js"></script>
 	<script src="js/jquery.peity.min.js"></script>
@@ -28,13 +44,7 @@
 	<!--/miejsce na pliki js-->
 
 
-	<script>
-	    $(document).bind('mobileinit',function(){
-	        $.mobile.changePage.defaults.changeHash = false;
-	        $.mobile.hashListeningEnabled = false;
-	        $.mobile.pushStateEnabled = false;
-	    });
-	</script> 
+	
 
 
 </head>
@@ -131,10 +141,19 @@
 		</div> 	
 		<div data-role="content" id="content2">
 			<img id="nurse_img" src="images/nurse.jpg" alt="Admin Panel">
-		    
-	  		<script type="text/javascript">
+		    <ul data-role="listview" data-theme="g">
+		   		<!-- możliwe zadania do wykonania -->
+			   		<li data-role="list-divider" role="heading" class="ui-li ui-li-divider ui-bar-b">Panel pielęgniarki</li>
+					<li><a id="show_all_patients_nurse_button" href="#show_all_patients_nurse_page">Wyświetl wszystkich pacjentów</a></li>
+					<li><a href="#add_patient_nurse_page">Dodaj pacjenta</a></li>
+					<li><a id="book_patient_nurse_button" href="#book_patient_nurse_page">Zarejestruj pacjenta</a></li>
+					<li><a id="patient_contact_nurse_button" href="#patient_contact_nurse_page">Kontakt z pacjentem</a></li>
+					<li><a id="outcome_research_nurse_button" href="#outcome_research_nurse_page">Wprowadzanie wyników badań do kartoteki</a></li>
+					<li><a id="show_nurse_callendar" href="#show_nurses_callendar_page">Zobacz grafik</a></li>					
+					
+
+			</ul>
 	  		
-	  		</script>
 		</div>
 	    <div id="footer" data-role="footer" data-theme="b" data-iconpos="top" data-id="foo1" data-position="fixed">
 			<div data-role="navbar">
@@ -145,6 +164,97 @@
 			</div><!-- /navbar -->
 		</div><!-- /footer --> 
 	</div>
+
+	<!--Pokaz wszystkich pacjentów dla pielęgniarki-->
+
+	<div data-role="page" id="show_all_patients_nurse_page">
+	   	<div data-role="header" id="header">
+		    <h1 id="header_text_id">Wszyscy pacjenci</h1>
+		</div> 	
+		<div data-role="content" id="content3">
+			<ul data-role="listview" data-theme="a">
+			<li  id="show_all_patient_nurse_list" data-role="fieldcontain" class="ui-field-contain ui-body ui-br ui-li ui-li-static ui-body-c">
+				<div > </div>
+			</li>
+			<li >
+				<div style="width:30%;">
+					<label  for="show_all_patient_nurse_page_pesel">Miejsce przeznaczone do wpisania PESELU przyjmowanego pacjenta:</label>
+		     		<input  type="number" size="25px" name="show_all_patient_nurse_page_pesel" id="show_all_patient_nurse_page_pesel" value="" placeholder="Wpisz PESEL obsługiwanego pacjenta"	>
+				</div>
+		     </li>
+			</ul>
+	  		
+		</div>
+	    <div id="footer" data-role="footer" data-theme="b" data-iconpos="top" data-id="foo1" data-position="fixed">
+			<div data-role="navbar">
+				<ul>
+					<li><a data-icon="alert" href="#page1">Wyloguj</a></li>
+					
+				</ul>
+			</div><!-- /navbar -->
+		</div><!-- /footer --> 
+	</div>
+  	
+	<!--dodawanie pacjenta-->
+
+	<div data-role="page" id="add_patient_nurse_page">
+	   	<div data-role="header" id="header">
+		    <h1 id="header_text_id">Dodawanie pacjenta</h1>
+		</div> 	
+		<div data-role="content" id="content2">
+			<img id="patient_img" src="images/patient.jpg" alt="Admin Panel">
+		    
+		    <!--pocz -->
+		    <div>
+		   		<ul data-role="listview" data-theme="g">
+
+		   		<!-- wpisanie daych potrzebnych do utworzenia konta lekarza: login, haslo, imie, nazwisko, data zatrudniania -->
+		    		<li data-role="fieldcontain" class="ui-field-contain ui-body ui-br ui-li ui-li-static ui-body-c">
+		    		<label style="border:none" for="add_new_patient_pesel" class="ui-input-text">PESEL:</label>
+		    		<input type="text" name="name" id="add_new_patient_pesel" value="" class="ui-input-text ui-body-c ui-corner-all ui-shadow-inset"></li>
+		    		<li data-role="fieldcontain" class="ui-field-contain ui-body ui-br ui-li ui-li-static ui-body-c">
+		    		<label style="border:none" for="add_new_patient_name" class="ui-input-text">Imie:</label>
+		    		<input type="text" name="add_new_patient_name" id="add_new_patient_name" value="" class="ui-input-text ui-body-c ui-corner-all ui-shadow-inset"></li>
+		    		<li data-role="fieldcontain" class="ui-field-contain ui-body ui-br ui-li ui-li-static ui-body-c">
+		    		<label style="border:none" for="add_new_patient_surname" class="ui-input-text">Nazwisko:</label>
+		    		<input type="text" name="add_new_patient_surname" id="add_new_patient_surname" value="" class="ui-input-text ui-body-c ui-corner-all ui-shadow-inset"></li>
+		    		<li data-role="fieldcontain" class="ui-field-contain ui-body ui-br ui-li ui-li-static ui-body-c">
+		    		<label style="border:none" for="add_new_patient_phonenumber" class="ui-input-text">Numer telefonu:</label>
+		    		<input type="text" name="add_new_patient_phonenumber" id="add_new_patient_phonenumber" value="" class="ui-input-text ui-body-c ui-corner-all ui-shadow-inset"></li>
+		    		<li data-role="fieldcontain" class="ui-field-contain ui-body ui-br ui-li ui-li-static ui-body-c">
+		    		<label style="border:none" for="add_new_patient_city" class="ui-input-text">Miejscowość:</label>
+		    		<input type="text" name="add_new_patient_city" id="add_new_patient_city" value="" class="ui-input-text ui-body-c ui-corner-all ui-shadow-inset"></li>
+		    		<li data-role="fieldcontain" class="ui-field-contain ui-body ui-br ui-li ui-li-static ui-body-c">
+		    		<label style="border:none" for="add_new_patient_postcode" class="ui-input-text">Kod pocztowy:</label>
+		    		<input type="text" name="add_new_patient_postcode" id="add_new_patient_postcode" value="" class="ui-input-text ui-body-c ui-corner-all ui-shadow-inset"></li>
+		    		<li data-role="fieldcontain" class="ui-field-contain ui-body ui-br ui-li ui-li-static ui-body-c">
+		    		<label style="border:none" for="add_new_patient_street" class="ui-input-text">Ulica:</label>
+		    		<input type="text" name="add_new_patient_street" id="add_new_patient_street" value="" class="ui-input-text ui-body-c ui-corner-all ui-shadow-inset"></li>
+		    		<li data-role="fieldcontain" class="ui-field-contain ui-body ui-br ui-li ui-li-static ui-body-c">
+		    		<label style="border:none" for="add_new_patient_buildingnumber" class="ui-input-text">Nr domu:</label>
+		    		<input type="text" name="add_new_patient_buildingnumber" id="add_new_patient_buildingnumber" value="" class="ui-input-text ui-body-c ui-corner-all ui-shadow-inset"></li>
+		    		<li data-role="fieldcontain" class="ui-field-contain ui-body ui-br ui-li ui-li-static ui-body-c">
+		    		<label style="border:none" for="add_new_patient_flatnumber" class="ui-input-text">Nr mieszkania:</label>
+		    		<input type="text" name="add_new_patient_flatnumber" id="add_new_patient_flatnumber" value="" class="ui-input-text ui-body-c ui-corner-all ui-shadow-inset"></li>
+		    		
+		    		<li><a  id="add_new_patient_button" data-rel="dialog" data-transition="flip" href="#pop_up_page">Zatwierdź</a></li>
+		    	</ul>
+		    </div>
+		    <!--koniec -->
+	  		<script type="text/javascript">
+	  		
+	  		</script>
+		</div>
+	    <div id="footer" data-role="footer" data-theme="b" data-iconpos="top" data-id="foo1" data-position="fixed">
+			<div data-role="navbar">
+				<ul>
+					<li><a data-icon="delete" href="#admin_page">Anuluj</a></li>
+					
+				</ul>
+			</div><!-- /navbar -->
+		</div><!-- /footer --> 
+	</div>
+
 	<!-- 
 
 	panel lekarza 
@@ -156,10 +266,17 @@
 		</div> 	
 		<div data-role="content" id="content2">
 			<img id="doctor_img" src="images/doctor.jpg" alt="Admin Panel">
-		    
-	  		<script type="text/javascript">
-	  		
-	  		</script>
+		   		
+		
+			<ul data-role="listview" data-theme="g">
+		   		<!-- możliwe zadania do wykonania -->
+			   		<li data-role="list-divider" role="heading" class="ui-li ui-li-divider ui-bar-b">Panel lekarza</li>
+					<li><a id="show_all_patients_button" href="#show_all_patient_page">Wyświetl wszystkich pacjentów</a></li>
+					<li><a href="#show_all_assigned_nurses_page">Wyświetl dane przydzielonych pielęgniarek</a></li>
+					<li><a id="show_doctors_callendar" href="#show_doctors_callendar_page">Wyświetl grafik</a></li>				
+					
+
+			</ul>
 		</div>
 	    <div id="footer" data-role="footer" data-theme="b" data-iconpos="top" data-id="foo1" data-position="fixed">
 			<div data-role="navbar">
@@ -170,6 +287,71 @@
 			</div><!-- /navbar -->
 		</div><!-- /footer --> 
 	</div>
+
+	<!--wyświetlanie wszystkich pacjentów przydzielonych do lekarza-->
+
+	<div data-role="page" id="show_all_patient_page">
+		<div data-role="header" id="header" data-theme="b">
+			
+			<h1 id="header_text_id">Wyświetlanie wszystkich przydzielonych pacjentów</h1>      
+			   
+		</div>
+		<div data-role="content" id="content3" data-theme="b">
+			<ul data-role="listview" data-theme="a">
+			<li  id="show_all_patient_list" data-role="fieldcontain" class="ui-field-contain ui-body ui-br ui-li ui-li-static ui-body-c">
+				<div > </div>
+			</li>
+			<li >
+				<div style="width:30%;">
+					<label  for="show_all_patient_page_pesel">Miejsce przeznaczone do wpisania PESELU przyjmowanego pacjenta:</label>
+		     		<input  type="number" size="25px" name="show_all_patient_page_pesel" id="show_all_patient_page_pesel" value="" placeholder="Wpisz PESEL obsługiwanego pacjenta"	>
+				</div>
+		     </li>
+			</ul>
+			   
+		</div>
+		<div id="footer" data-role="footer" data-theme="b" data-iconpos="top" data-id="foo1" data-position="fixed">
+			<div data-role="navbar">
+				<ul>
+					<li><a data-icon="back" href="#admin_page">Cofnij</a></li>
+					<li><a id="delete_user_accept"data-icon="check" href="#pop_up_page" data-rel="dialog" data-transition="flip">Akceptuj</a></li>
+					
+					
+				</ul>
+			</div><!-- /navbar -->
+		</div><!-- /footer --> 
+	</div>
+
+
+	<!--wyświetlanie grafiku lekarza-->
+
+	<div data-role="page" id="show_doctors_callendar_page">
+		<div data-role="header" id="header" data-theme="b">
+			
+			<h1 id="header_text_id">Wyświetlanie grafiku lekarza</h1>      
+			   
+		</div>
+		<div data-role="content" id="content3" data-theme="b">
+			<ul data-role="listview" data-theme="a">
+			
+				<li id='doctor_page_callendar'>
+					
+				</li>
+			</ul>
+			   
+		</div>
+		<div id="footer" data-role="footer" data-theme="b" data-iconpos="top" data-id="foo1" data-position="fixed">
+			<div data-role="navbar">
+				<ul>
+					<li><a data-icon="back" href="#admin_page">Cofnij</a></li>
+					<li><a id="delete_user_accept"data-icon="check" href="#pop_up_page" data-rel="dialog" data-transition="flip">Akceptuj</a></li>
+					
+					
+				</ul>
+			</div><!-- /navbar -->
+		</div><!-- /footer --> 
+	</div>
+
 
 	<!-- 
 
@@ -372,16 +554,19 @@
 				<fieldset class="ui-grid-a" >
 					<div class="ui-block-a">
 					<h1>Wybierz użytkownika(ów)</h1>
-					<ul>	
-						<ol id="selectable">
-							
-						</ol>
-					</ul>
+					<input type="text" data-theme="a" id="change_employees_text">
+					<div class="scrollingContainer">
+						<ul id="selectable">	
+							<ol >
+								
+							</ol>
+						</ul>
+					</div>
 					</div>
 					<div class="ui-block-b">
 						<h1>Wybierz nową funkcję</h1>
-						<ul>	
-						<ol id="selectable1">
+						<ul id="selectable1">	
+						<ol >
 							
 						</ol>
 					</ul>
@@ -398,7 +583,7 @@
 				<ul>
 					<li><a data-icon="back" href="#admin_page">Cofnij</a></li>
 					<!--  AKCEPTUJEMY USUNIECIE Z BAZY UZYTKOWNIKA -->
-					<li><a id="delete_user_accept"data-icon="check" href="#pop_up_page" data-rel="dialog" data-transition="flip">Akceptuj</a></li>
+					<li><a id="change_user_permission_accept"data-icon="check" href="#pop_up_page" data-rel="dialog" data-transition="flip">Akceptuj</a></li>
 					
 				</ul>
 			</div><!-- /navbar -->

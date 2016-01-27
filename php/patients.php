@@ -22,6 +22,7 @@ include "DB.php";
 **/
   $mode="";
   $login="";
+  $id="";
   
 /*
 * Module: Settings
@@ -30,6 +31,10 @@ include "DB.php";
   if(isset($_POST['mode'])=== true)
   {
     $mode=$_POST['mode'];
+  }
+  if(isset($_POST['id'])=== true)
+  {
+    $id=$_POST['id'];
   }
 
   /***********************************************
@@ -50,7 +55,7 @@ include "DB.php";
     // 2) Query database for data
     //--------------------------------------------------------------------------
     
-    $result = mysql_query("SELECT * FROM $tableName " );          //query
+    $result = mysql_query("SELECT pacjenci.pesel, pacjenci.imie, pacjenci.nazwisko, pacjenci.nr_tel, pacjenci.miejscowosc, pacjenci.kod_poczt, pacjenci.ulica, pacjenci.nr_domu, pacjenci.nr_mieszk FROM uzytkownicy inner join wizyta inner JOIN pacjenci where uzytkownicy.id_pracownika = wizyta.lekarz and uzytkownicy.id_pracownika='".$id."' and wizyta.pesel_pacjenta = pacjenci.pesel" );          //query
     while ( $row = mysql_fetch_row($result) )
     {
       $data[] = $row;
@@ -62,17 +67,8 @@ include "DB.php";
     echo json_encode($data);
   }
 
-  /***********************************************************
-  * Module:  Delete user
-  * Query to delete user's data from the DataBase, 
-  * whose login is transfered by variable "login"
-  ***********************************************************/
   if($mode=="2")
   {
-    if(isset($_POST['login'])=== true)
-    {
-      $login=$_POST['login'];
-    }
     //--------------------------------------------------------------------------
     // 1) Connect to mysql database
     //--------------------------------------------------------------------------
@@ -84,62 +80,7 @@ include "DB.php";
     // 2) Query database for data
     //--------------------------------------------------------------------------
     
-    $result = mysql_query("DELETE * FROM $tableName WHERE $tableName.login='".$login."';" );          //query
-    
-    
-    //--------------------------------------------------------------------------
-    // 3) echo result as json 
-    //--------------------------------------------------------------------------
-    echo json_encode($result);
-  }
- 
-
-
-/*
-!!!!!!!!!!!!
-!!!!!!!!!!!!!
-
-  //DO PRZENIESIENIA
-!!!!!!!!!!!!!!
-
-!!!!!!!!!!!
-*/
-
-  /*****************************************************
-  * Module: Display user
-  * Display user's data (without password) -> login, permission, data of starting job, name and surname
-  * in the admin's page
-  *****************************************************/
-  if($mode=="3")
-  {
-    //--------------------------------------------------------------------------
-    // 1) Connect to mysql database
-    //--------------------------------------------------------------------------
-    //include 'DB.php';
-    $con = mysql_connect($host,$user,$pass);
-    $dbs = mysql_select_db($databaseName, $con);
-
-    //--------------------------------------------------------------------------
-    // 2) Query database for data
-    //--------------------------------------------------------------------------
-    
-    $result = mysql_query("SELECT login, permission, Data_zatrudnienia, Imie, Nazwisko FROM $tableName " );          //query
-    while ( $row = mysql_fetch_row($result) )
-    {
-      $data[] = $row;
-    }
-    
-    //--------------------------------------------------------------------------
-    // 3) echo result as json 
-    //--------------------------------------------------------------------------
-    echo json_encode($data);
-  }
-  if($mode=="4")
-  {
-    $con = mysql_connect($host,$user,$pass);
-    $dbs = mysql_select_db($databaseName, $con);
-
-    $result = mysql_query("SELECT login, Imie, Nazwisko FROM $tableName " );          //query
+    $result = mysql_query("SELECT * FROM pacjenci" );          //query
     while ( $row = mysql_fetch_row($result) )
     {
       $data[] = $row;
@@ -151,5 +92,3 @@ include "DB.php";
     echo json_encode($data);
   }
   
-
-?>
