@@ -42,6 +42,10 @@ include "DB.php";
   * Query to find and get all data from table, 
   * which name is stored in variable "tableName"
   ************************************************/
+
+  /**
+  *mode = 1 ->
+  */
   if($mode=="1")
   {
     //--------------------------------------------------------------------------
@@ -66,6 +70,7 @@ include "DB.php";
     //--------------------------------------------------------------------------
     echo json_encode($data);
   }
+
 
   if($mode=="2")
   {
