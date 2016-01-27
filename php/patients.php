@@ -38,14 +38,11 @@ include "DB.php";
   }
 
   /***********************************************
-  * Module: Get data from DB
-  * Query to find and get all data from table, 
-  * which name is stored in variable "tableName"
+  * Module: Get Patient  data from DB
+  * Query to find and get all data from 'pacjenci' table
   ************************************************/
 
-  /**
-  *mode = 1 ->
-  */
+  
   if($mode=="1")
   {
     //--------------------------------------------------------------------------

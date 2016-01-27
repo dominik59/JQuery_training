@@ -402,7 +402,10 @@ $( document ).ready(function() {
 * end of add_new_patient_page
 **/
 
-// show all nurse patient
+/**
+* Module: show all patients
+* Display all registered patients from /Nurse/ position.
+**/
 $(document).ready(function(){
 	$('#show_all_patients_nurse_button').on("click",function(){
 		var mode = 2;// all patients
@@ -419,7 +422,7 @@ $(document).ready(function(){
 	      	var json = data;
 	      	console.log(json);
 	      	//alert(json);
-//display data of hired employees
+//display data of registered patients
 	      	$('#show_all_patient_nurse_list').columns({
 	      		data:json,
 	      		schema: [
@@ -442,7 +445,9 @@ $(document).ready(function(){
 	    });
 	});
 });
-// show all nurse patient
+/**
+*end of show_all_patients
+*/
 
 
 /**
@@ -481,11 +486,7 @@ $(document).ready(function() {
 	        
 	      }
 	    });
-	});
-	
-	
-
-    
+	});   
 
 });
 /**
@@ -494,8 +495,8 @@ $(document).ready(function() {
 
 
 /**
-* Module: Show patients
-* Display all patients assigned to certain doctor.
+* Module: Show my patients
+* Display all patients assigned to certain doctor (from /Doctor's/ position).
 **/
 $(document).ready(function() {
 	$('#show_all_patients_button').on("click",function(){
@@ -532,6 +533,14 @@ $(document).ready(function() {
 	      }
 	    });
 	});
+/**
+* end of show_my_patients
+*/
+
+/**
+*Module: Show Schedule
+*Display staff work schedule in /Doctor or Nurse/ page.
+*/
 	$('#show_doctors_callendar').on("click",function(){
 		$('#doctor_page_callendar').fullCalendar({
 			defaultDate: '2016-01-12',
@@ -602,10 +611,13 @@ $(document).ready(function() {
 
 });
 /**
-* end of show_all_patients
+* end of show_schedule
 **/
 
-//////////////////////////////////change_employees_permission
+/**
+*Module: Change permission
+* Change user permission to another from /Admin/ position.
+*/
 
 $(document).ready(function(){
 	
@@ -747,7 +759,6 @@ $(document).ready(function(){
 	});
 });
 
-
-
-
-//////////////////////////////////change_employees_permission
+/**
+*end of change_permission
+*/
