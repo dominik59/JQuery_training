@@ -105,11 +105,11 @@ include "DB.php";
 !!!!!!!!!!!
 */
 
-  /*****************************************************
+  /*****************************************************************************
   * Module: Display user
   * Display user's data (without password) -> login, permission, data of starting job, name and surname
   * in the admin's page
-  *****************************************************/
+  *****************************************************************************/
   if($mode=="3")
   {
     //--------------------------------------------------------------------------
@@ -123,7 +123,7 @@ include "DB.php";
     // 2) Query database for data
     //--------------------------------------------------------------------------
     
-    $result = mysql_query("SELECT login, permission, Data_zatrudnienia, Imie, Nazwisko FROM $tableName " );          //query
+    $result = mysql_query("SELECT login, permission, Data_zatrudnienia, Imie, Nazwisko FROM $tableName " );  //query
     while ( $row = mysql_fetch_row($result) )
     {
       $data[] = $row;
@@ -134,12 +134,13 @@ include "DB.php";
     //--------------------------------------------------------------------------
     echo json_encode($data);
   }
+
   if($mode=="4")
   {
     $con = mysql_connect($host,$user,$pass);
     $dbs = mysql_select_db($databaseName, $con);
 
-    $result = mysql_query("SELECT login, Imie, Nazwisko FROM $tableName " );          //query
+    $result = mysql_query("SELECT login, Imie, Nazwisko FROM $tableName " );  //query
     while ( $row = mysql_fetch_row($result) )
     {
       $data[] = $row;

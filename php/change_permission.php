@@ -41,7 +41,11 @@ if(isset($_POST['login'])=== true)
 * Module: Sign in
 * Check the login, if the user passed correct password - sign him (her) into 
 * the platform on proper user page
+*
 **/
+/**
+*mode = 1 -> change user permission into /Nurse/
+*/
 if($mode==1)
 {
 		//--------------------------------------------------------------------------
@@ -65,6 +69,9 @@ if($mode==1)
 	//--------------------------------------------------------------------------
 	echo json_encode($result);
 }
+/**
+*mode = 2 -> change user permission into /Doctor/
+*/
 if($mode==2)
 {
 		//--------------------------------------------------------------------------
@@ -88,6 +95,9 @@ if($mode==2)
 	//--------------------------------------------------------------------------
 	echo json_encode($result);
 }
+/**
+*mode = 3 -> change user permission into /Admin/
+*/
 if($mode==3)
 {
 		//--------------------------------------------------------------------------
