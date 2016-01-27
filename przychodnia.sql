@@ -29,7 +29,7 @@ SET time_zone = "+00:00";
 CREATE TABLE IF NOT EXISTS `choroba` (
   `id_choroby` int(11) NOT NULL,
   `nazwa_choroby` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-  `objawy` longtext CHARACTER SET utf8 COLLATE utf8_unicode_ci,
+  `objawy` varchar(2000) CHARACTER SET utf8 COLLATE utf8_unicode_ci,
   `data_badania` date NOT NULL,
   `lekarz` int(11) NOT NULL,
   `pesel_pacjenta` bigint(11) NOT NULL

@@ -520,12 +520,9 @@ $(document).ready(function() {
                   {"header":"PESEL", "key":"0"},
                   {"header":"Imie", "key":"1"},
                   {"header":"Nazwisko", "key":"2"},
-                  {"header":"Nr. tel", "key":"3"},
-                  {"header":"Miejscowość", "key":"4"},
-                  {"header":"Kod pocztowy", "key":"5"},
-                  {"header":"Ulica", "key":"6"},
-                  {"header":"Nr domu", "key":"7"},
-                  {"header":"Nr mieszkania", "key":"8"}
+                  {"header":"Nazwa choroby", "key":"3"},
+                  
+                  
               ]
 	      		
 		    });

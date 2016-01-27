@@ -272,7 +272,7 @@
 		   		<!-- możliwe zadania do wykonania -->
 			   		<li data-role="list-divider" role="heading" class="ui-li ui-li-divider ui-bar-b">Panel lekarza</li>
 					<li><a id="show_all_patients_button" href="#show_all_patient_page">Wyświetl wszystkich pacjentów</a></li>
-					<li><a href="#show_all_assigned_nurses_page">Wyświetl dane przydzielonych pielęgniarek</a></li>
+					<li><a href="#show_patient_panel">Wyświetl dane przydzielonych pielęgniarek</a></li>
 					<li><a id="show_doctors_callendar" href="#show_doctors_callendar_page">Wyświetl grafik</a></li>				
 					
 
@@ -352,6 +352,49 @@
 		</div><!-- /footer --> 
 	</div>
 
+	<!--wyświetlanie panelu pacjenta-->
+
+	<div data-role="page" id="show_patient_panel">
+		<div data-role="header" id="header" data-theme="b">
+			
+			<h1 id="header_text_id">Panel pacjenta</h1>      
+			   
+		</div>
+		<div data-role="content" id="content3" data-theme="b">
+			<fieldset class="ui-grid-a" >
+					<div style="width:200px;" class="ui-block-a">
+						<div>
+						<ul style="margin-top:0;margin-bottom:0;margin-left:0;margin-right:0;border-radius:10px;" data-role="listview" data-theme="a">
+							<li><a href="#" class="ui-btn">Historia choroby pacjenta</a></li>
+							<li><a href="#" class="ui-btn">Historia choroby pacjenta</a></li>
+							<li><a href="#" class="ui-btn">Dodaj chorobę</a></li>
+							<li><a href="#" class="ui-btn">Lista skierowań</a></li>
+							<li><a href="#" class="ui-btn">Lista recept</a></li>
+							
+				
+						</ul>
+						</div>
+					</div>
+
+					<div class="ui-block-a">
+
+					</div>
+			</fieldset>
+
+			
+			   
+		</div>
+		<div id="footer" data-role="footer" data-theme="b" data-iconpos="top" data-id="foo1" data-position="fixed">
+			<div data-role="navbar">
+				<ul>
+					<li><a data-icon="back" href="#admin_page">Cofnij</a></li>
+					<li><a id="delete_user_accept"data-icon="check" href="#pop_up_page" data-rel="dialog" data-transition="flip">Akceptuj</a></li>
+					
+					
+				</ul>
+			</div><!-- /navbar -->
+		</div><!-- /footer --> 
+	</div>
 
 	<!-- 
 

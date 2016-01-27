@@ -123,6 +123,15 @@
     background-size: cover;
     background-size:100% 100%;
 }
+#show_patient_panel.ui-page
+{
+    background: url(images/backg.jpg) no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    background-size:100% 100%;
+}
 #change_employees_permission.ui-page {
     background: url(images/backg.jpg) no-repeat center center fixed; 
     -webkit-background-size: cover;
