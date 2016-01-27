@@ -90,6 +90,22 @@
     background-size:100% 100%;
     
 }
+#show_all_patients_nurse_page.ui-page {
+    background: url(images/backg.jpg) no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    background-size:100% 100%;
+}
+#add_patient_nurse_page{
+    background: url(images/backg.jpg) no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    background-size:100% 100%;
+}
 #change_employees_permission.ui-page {
     background: url(images/backg.jpg) no-repeat center center fixed; 
     -webkit-background-size: cover;
@@ -153,6 +169,16 @@
     margin-right: auto;
     width:325px;
     height:260px;
+}
+#patient_img
+{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 29px;
+    width:250px;
+    height:250px;
+    border-radius: 5px;
 }
 #space_id{
 	height:15px;

@@ -67,9 +67,28 @@ include "DB.php";
     echo json_encode($data);
   }
 
-  /***********************************************************
-  * Module:  Delete user
-  * Query to delete user's data from the DataBase, 
-  * whose login is transfered by variable "login"
-  ***********************************************************/
+  if($mode=="2")
+  {
+    //--------------------------------------------------------------------------
+    // 1) Connect to mysql database
+    //--------------------------------------------------------------------------
+    //include 'DB.php';
+    $con = mysql_connect($host,$user,$pass);
+    $dbs = mysql_select_db($databaseName, $con);
+
+    //--------------------------------------------------------------------------
+    // 2) Query database for data
+    //--------------------------------------------------------------------------
+    
+    $result = mysql_query("SELECT * FROM pacjenci" );          //query
+    while ( $row = mysql_fetch_row($result) )
+    {
+      $data[] = $row;
+    }
+    
+    //--------------------------------------------------------------------------
+    // 3) echo result as json 
+    //--------------------------------------------------------------------------
+    echo json_encode($data);
+  }
   

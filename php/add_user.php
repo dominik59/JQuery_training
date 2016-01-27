@@ -22,23 +22,23 @@ include "DB.php";
 ** surname - Surname of the employee
 ** curdate - Date, when the employee started work
 **/
-$login="";
-$password="";
+$pesel="";
 $name="";
 $surname="";
-$curdate="";
+$phonenumber="";
+$city="";
+$postcode="";
+$street="";
+$buildingnumber="";
+$flatnumber="";
 
 /*
 * Module: Settings
 * Set default data
 **/
-if(isset($_POST['login'])=== true)
+if(isset($_POST['pesel'])=== true)
 {
-  $login=$_POST['login'];
-}
-if(isset($_POST['password'])=== true)
-{
-  $password=$_POST['password'];
+  $pesel=$_POST['pesel'];
 }
 if(isset($_POST['name'])=== true)
 {
@@ -48,9 +48,29 @@ if(isset($_POST['surname'])=== true)
 {
   $surname=$_POST['surname'];
 }
-if(isset($_POST['curdate'])=== true)
+if(isset($_POST['phonenumber'])=== true)
 {
-  $curdate=$_POST['curdate'];
+  $phonenumber=$_POST['phonenumber'];
+}
+if(isset($_POST['city'])=== true)
+{
+  $city=$_POST['city'];
+}
+if(isset($_POST['postcode'])=== true)
+{
+  $postcode=$_POST['postcode'];
+}
+if(isset($_POST['street'])=== true)
+{
+  $street=$_POST['street'];
+}
+if(isset($_POST['buildingnumber'])=== true)
+{
+  $buildingnumber=$_POST['buildingnumber'];
+}
+if(isset($_POST['flatnumber'])=== true)
+{
+  $flatnumber=$_POST['flatnumber'];
 }
 
 /**********************************************
@@ -94,6 +114,26 @@ else if (isset($_POST['mode'])=== true && $_POST['mode']==2)
   ** 2) Query database for data
   */ 
   $result = mysql_query("INSERT INTO `uzytkownicy` (`login`, `haslo`, `permission`, `Data_zatrudnienia`, `Imie`, `Nazwisko`) VALUES('".$login."', '".$password."', 'nurse', '".$curdate."','".$name."','".$surname."');" );          //query
+  
+  
+  /*
+  ** 3) echo result as json 
+  */
+  echo json_encode($result);
+}
+else if (isset($_POST['mode'])=== true && $_POST['mode']==3)
+{
+  /*
+  ** 1) Connect to mysql database
+  */
+  //include 'DB.php';
+  $con = mysql_connect($host,$user,$pass);
+  $dbs = mysql_select_db($databaseName, $con);
+
+  /*
+  ** 2) Query database for data
+  */ 
+  $result = mysql_query("INSERT INTO `pacjenci` (`pesel`, `imie`, `nazwisko`, `nr_tel`, `miejscowosc`, `kod_poczt`,`ulica`, `nr_domu`, `nr_mieszk`) VALUES('".$pesel."', '".$name."', '".$surname."','".$phonenumber."','".$city."','".$postcode."' ,'".$street."' ,'".$buildingnumber."' ,'".$flatnumber."');" );          //query
   
   
   /*

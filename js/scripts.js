@@ -340,6 +340,110 @@ $( document ).ready(function() {
 * end of add_new_nurse_page
 **/
 
+/**
+* Module: Add Patient
+* Add new Patient's page from the /Nurse/ position. 
+**/
+$( document ).ready(function() {
+	$('#add_new_patient_button').on('click',function(){
+		//Patient's data
+		var pesel= $('#add_new_patient_pesel').val();
+		var name= $('#add_new_patient_name').val();
+		var surname = $('#add_new_patient_surname').val();
+		var phonenumber = $('#add_new_patient_phonenumber').val();
+		var city = $('#add_new_patient_city').val();
+		var postcode = $('#add_new_patient_postcode').val();
+		var street = $('#add_new_patient_street').val();
+		var buildingnumber = $('#add_new_patient_buildingnumber').val();
+		var flatnumber = $('#add_new_patient_flatnumber').val();
+		var mode=3; // it's a Patient
+		//alert(curdate);
+		 $.ajax({ 					
+		   type:"POST",     			                               
+	       url: 'php/add_user.php', 	                  //the script to call to get data          
+	       data: {mode:mode, pesel:pesel, name:name, surname:surname, phonenumber:phonenumber,city:city, postcode:postcode, street:street,buildingnumber:buildingnumber,flatnumber:flatnumber}, 
+	                              //you can insert url argumnets here to pass to api.php
+	                                       //for example "id=5&parent=6"
+	      dataType: 'json',                //data format      
+	      success: function(data)          //on recieve of reply
+	      {
+	      	//alert(data);
+//alert about a succes of adding a new Nurse to the DataBase
+	      	var status = data;
+	      	if(data==true)
+	      	{
+	      		$('#pop_up_h1').text("Dodano do bazy");
+	      		$('#pop_up_p').text("Do bazy danych dodano wszystkie wymagane rekordy");
+	      		//$.mobile.changePage( $("#pop_up_page"), "flip", true, true);
+	      	}
+	      	/*var pass = data[0][0];
+	      	var perm = data[0][1];
+	      	if($('#password_id').val()==pass)
+	      	{
+	      		if(perm=="admin")
+	      		{
+	      			$.mobile.changePage( $("#admin_page"), "slide", true, true);
+	      		}
+	      		if(perm=="nurse")
+	      		{
+	      			$.mobile.changePage($('#nurse_page'),"slide",true,true);
+	      		}
+	      		if(perm=="doctor")
+	      		{
+	      			$.mobile.changePage($('#add_new_doctor_page'),"slide",true,true);
+	      		}
+	      	}*/
+	        
+	      }
+	    }); 
+	});
+});
+/**
+* end of add_new_patient_page
+**/
+
+// show all nurse patient
+$(document).ready(function(){
+	$('#show_all_patients_nurse_button').on("click",function(){
+		var mode = 2;// all patients
+   		  $.ajax({ 					   
+		   type:"POST",    			                                  
+    	   url: 'php/patients.php',                  //the script to call to get data          
+	       data: {mode:mode}, 		  
+	                              //you can insert url argumnets here to pass to api.php
+	                                       //for example "id=5&parent=6"
+	      dataType: 'json',                //data format      
+	      success: function(data)          //on recieve of reply
+	      {
+	      	//alert(data);
+	      	var json = data;
+	      	console.log(json);
+	      	//alert(json);
+//display data of hired employees
+	      	$('#show_all_patient_nurse_list').columns({
+	      		data:json,
+	      		schema: [
+                  {"header":"PESEL", "key":"0"},
+                  {"header":"Imie", "key":"1"},
+                  {"header":"Nazwisko", "key":"2"},
+                  {"header":"Nr. tel", "key":"3"},
+                  {"header":"Miejscowość", "key":"4"},
+                  {"header":"Kod pocztowy", "key":"5"},
+                  {"header":"Ulica", "key":"6"},
+                  {"header":"Nr domu", "key":"7"},
+                  {"header":"Nr mieszkania", "key":"8"}
+              ]
+	      		
+		    });
+		    //alert(document.getElementById('example').innerHTML);
+	      	
+	        
+	      }
+	    });
+	});
+});
+// show all nurse patient
+
 
 /**
 * Module: Show employees
@@ -486,7 +590,8 @@ $(document).ready(function(){
 		$("#selectable1").append("<li>" +'Administrator'+ "</li>");
 		
 	});
-	
+	var people_table;
+	var people_function;
 	$( "#selectable" ).selectable({
       stop: function() {
         var a=[];
@@ -496,6 +601,7 @@ $(document).ready(function(){
 
         });
         console.log(a);
+        people_table=a;
       }
     });
 
@@ -508,11 +614,48 @@ $(document).ready(function(){
 
         });
         console.log(a);
+        people_function=a;
       }
     });
 
     $("#change_user_permission_accept").on("click",function(){
-    	
+    	for(i in people_table)
+    	{
+    		var temp_string = $("#selectable li")[people_table[i]-1].innerText.split(' ')[0];
+    		console.log(temp_string);
+    		people_table[i]=temp_string;
+    	}
+    	console.log(people_table);
+    	var mode;
+    	if(people_function==1)
+    	{
+    		mode=1;
+    	}
+    	else if(people_function==2)
+    	{
+    		mode=2;
+    	}
+    	else if(people_function==3)
+    	{
+    		mode=3;
+    	}
+    	console.log(mode);
+    	for (i in people_table)
+    	{
+    		$.ajax({ 						  
+		  	type:"POST",                
+	       	url: 'php/change_permission.php',         //the script to call to get data          
+	       	data: {mode:mode,login:people_table[i]},			 
+	                              			//you can insert url argumnets here to pass to api.php
+	                                       //for example "id=5&parent=6"
+	      	dataType: 'json',                //data format      
+	      	success: function(data)          //on recieve of reply
+	      	{
+	      		console.log(data);
+	      		alert(data);
+	      	} 
+	    	});
+    	}
     	
 		
     });
