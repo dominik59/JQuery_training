@@ -535,6 +535,69 @@ $(document).ready(function() {
 	      }
 	    });
 	});
+	$('#show_doctors_callendar').on("click",function(){
+		$('#doctor_page_callendar').fullCalendar({
+			defaultDate: '2016-01-12',
+			editable: false,
+			eventLimit: true, // allow "more" link when too many events
+			events: [
+				{
+					title: 'All Day Event',
+					start: '2016-01-01'
+				},
+				{
+					title: 'Long Event',
+					start: '2016-01-07',
+					end: '2016-01-10'
+				},
+				{
+					id: 999,
+					title: 'Repeating Event',
+					start: '2016-01-09T16:00:00'
+				},
+				{
+					id: 999,
+					title: 'Repeating Event',
+					start: '2016-01-16T16:00:00'
+				},
+				{
+					title: 'Conference',
+					start: '2016-01-11',
+					end: '2016-01-13'
+				},
+				{
+					title: 'Meeting',
+					start: '2016-01-12T10:30:00',
+					end: '2016-01-12T12:30:00'
+				},
+				{
+					title: 'Lunch',
+					start: '2016-01-12T12:00:00'
+				},
+				{
+					title: 'Meeting',
+					start: '2016-01-12T14:30:00'
+				},
+				{
+					title: 'Happy Hour',
+					start: '2016-01-12T17:30:00'
+				},
+				{
+					title: 'Dinner',
+					start: '2016-01-12T20:00:00'
+				},
+				{
+					title: 'Birthday Party',
+					start: '2016-01-13T07:00:00'
+				},
+				{
+					title: 'Click for Google',
+					url: 'http://google.com/',
+					start: '2016-01-28'
+				}
+			]
+		});
+	});
 	
 	
 
@@ -651,8 +714,10 @@ $(document).ready(function(){
 	      	dataType: 'json',                //data format      
 	      	success: function(data)          //on recieve of reply
 	      	{
-	      		console.log(data);
-	      		alert(data);
+	      		// console.log(data);
+	      		// alert(data);
+	      		$('#pop_up_h1').text("SUKCES");
+	      		$('#pop_up_p').text("Na bazie danych dokonano wymaganych operacji");
 	      	} 
 	    	});
     	}

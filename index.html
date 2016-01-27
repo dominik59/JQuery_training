@@ -12,10 +12,13 @@
 	
 
 	<!--miejsce na pliki css-->
+	<link href='css/fullcalendar.css' rel='stylesheet' />
+	<link href='css/fullcalendar.print.css' rel='stylesheet' media='print' />
     <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
     <link rel="stylesheet" href="view.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-	<link rel="stylesheet" href="css/classic.css"> 
+	<link rel="stylesheet" href="css/classic.css">
+	
 	<!--/miejsce na pliki css-->
 
 	
@@ -31,6 +34,8 @@
 	</script> 
 	<script src="//code.jquery.com/ui/1.11.4/jquery-ui.
 	js"></script>
+	<script src='js/moment.min.js'></script>
+	<script src='js/fullcalendar.min.js'></script>
 	<script src="js/jquery.columns.min.js"></script>
 	<script src="js/jquery.columns.min.js"></script>
 	<script src="js/jquery.peity.min.js"></script>
@@ -316,6 +321,37 @@
 			</div><!-- /navbar -->
 		</div><!-- /footer --> 
 	</div>
+
+
+	<!--wyświetlanie grafiku lekarza-->
+
+	<div data-role="page" id="show_doctors_callendar_page">
+		<div data-role="header" id="header" data-theme="b">
+			
+			<h1 id="header_text_id">Wyświetlanie grafiku lekarza</h1>      
+			   
+		</div>
+		<div data-role="content" id="content3" data-theme="b">
+			<ul data-role="listview" data-theme="a">
+			
+				<li id='doctor_page_callendar'>
+					
+				</li>
+			</ul>
+			   
+		</div>
+		<div id="footer" data-role="footer" data-theme="b" data-iconpos="top" data-id="foo1" data-position="fixed">
+			<div data-role="navbar">
+				<ul>
+					<li><a data-icon="back" href="#admin_page">Cofnij</a></li>
+					<li><a id="delete_user_accept"data-icon="check" href="#pop_up_page" data-rel="dialog" data-transition="flip">Akceptuj</a></li>
+					
+					
+				</ul>
+			</div><!-- /navbar -->
+		</div><!-- /footer --> 
+	</div>
+
 
 	<!-- 
 

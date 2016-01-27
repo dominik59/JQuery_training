@@ -7,6 +7,15 @@
     div.container {
         width: 80%;
     }
+.ui-page-theme-a a:visited, html .ui-bar-a a:visited, html .ui-body-a a:visited, html body .ui-group-theme-a a:visited {
+    color: #fff;
+}
+#doctor_page_callendar {
+        max-width: 900px;
+        margin: 0 auto;
+        font-family: "Lucida Grande",Helvetica,Arial,Verdana,sans-serif;
+        
+}
  #page1.ui-page{
     background: url(images/backg.jpg) no-repeat center center fixed; 
     -webkit-background-size: cover;
@@ -106,6 +115,14 @@
     background-size: cover;
     background-size:100% 100%;
 }
+#show_doctors_callendar_page{
+    background: url(images/backg.jpg) no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    background-size:100% 100%;
+}
 #change_employees_permission.ui-page {
     background: url(images/backg.jpg) no-repeat center center fixed; 
     -webkit-background-size: cover;
@@ -149,6 +166,7 @@
 	background-size: 100% 100%;
 	border-radius: 25px;
 }
+
 #admin_img{
 	display: block;
 	margin-left: auto;

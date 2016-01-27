@@ -55,7 +55,7 @@ if($mode==1)
 	// 2) Query database for data
 	//--------------------------------------------------------------------------
 
-	$result = mysql_query("UPDATE '".$tableName."'' SET permission='nurse' WHERE login='".$login."'");  
+	$result = mysql_query("UPDATE uzytkownicy SET permission='nurse' WHERE login='".$login."'");  
 
 	        //query
 	
@@ -78,7 +78,7 @@ if($mode==2)
 	// 2) Query database for data
 	//--------------------------------------------------------------------------
 
-	$result = mysql_query("UPDATE '".$tableName."' SET permission='doctor' WHERE login='".$login."'");  
+	$result = mysql_query("UPDATE uzytkownicy SET permission='doctor' WHERE login='".$login."'");  
 
 	        //query
 	
@@ -109,7 +109,7 @@ if($mode==3)
 	//--------------------------------------------------------------------------
 	// 3) echo result as json 
 	//--------------------------------------------------------------------------
-	echo json_encode($login);
+	echo json_encode($result);
 }
 
 
