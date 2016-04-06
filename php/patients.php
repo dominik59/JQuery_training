@@ -56,7 +56,7 @@ include "DB.php";
     // 2) Query database for data
     //--------------------------------------------------------------------------
     
-    $result = mysql_query("SELECT pacjenci.pesel, pacjenci.imie, pacjenci.nazwisko, choroba.nazwa_choroby FROM uzytkownicy inner join wizyta inner JOIN pacjenci inner join choroba where uzytkownicy.id_pracownika = wizyta.lekarz and uzytkownicy.id_pracownika='".$id."' and wizyta.pesel_pacjenta = pacjenci.pesel AND wizyta.id_choroby=choroba.id_choroby" );          //query
+    $result = mysql_query("SELECT pacjenci.pesel, pacjenci.imie, pacjenci.nazwisko, choroba.nazwa_choroby,choroba.objawy FROM uzytkownicy inner join wizyta inner JOIN pacjenci inner join choroba where uzytkownicy.id_pracownika = wizyta.lekarz and uzytkownicy.id_pracownika='".$id."' and wizyta.pesel_pacjenta = pacjenci.pesel AND wizyta.id_choroby=choroba.id_choroby" );          //query
     while ( $row = mysql_fetch_row($result) )
     {
       $data[] = $row;

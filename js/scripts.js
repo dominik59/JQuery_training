@@ -522,7 +522,7 @@ $(document).ready(function() {
                   {"header":"Imie", "key":"1"},
                   {"header":"Nazwisko", "key":"2"},
                   {"header":"Nazwa choroby", "key":"3"},
-                  
+                  {"header":"Objawy", "key":"4"},
                   
               ]
 	      		
@@ -536,7 +536,26 @@ $(document).ready(function() {
 /**
 * end of show_my_patients
 */
-
+	$('#accept_all_patient_pesel').on("click", function(){
+		var mode=3;
+		$.ajax({ 					   
+		   type:"POST",    			                                  
+    	   url: 'php/patients.php',                  //the script to call to get data          
+	       data: {mode:mode,id:cur_usr_id}, 		  
+	                              //you can insert url argumnets here to pass to api.php
+	                                       //for example "id=5&parent=6"
+	      dataType: 'json',                //data format      
+	      success: function(data)          //on recieve of reply
+	      {
+	      	var json = data;
+	      	console.log(json);
+	      	//wpisać do hi imię i nazwisko
+	      	//oraz stworzyć nową zmienną globalną przetrzymującą pesel
+	      	
+	        
+	      }
+	    });
+	});
 /**
 *Module: Show Schedule
 *Display staff work schedule in /Doctor or Nurse/ page.
@@ -548,59 +567,36 @@ $(document).ready(function() {
 			eventLimit: true, // allow "more" link when too many events
 			events: [
 				{
-					title: 'All Day Event',
+					title: 'Całodzienny dyżur',
 					start: '2016-01-01'
 				},
 				{
-					title: 'Long Event',
+					title: 'Wizyty domowe',
 					start: '2016-01-07',
 					end: '2016-01-10'
 				},
 				{
 					id: 999,
-					title: 'Repeating Event',
+					title: 'Szczepienia',
 					start: '2016-01-09T16:00:00'
 				},
 				{
 					id: 999,
-					title: 'Repeating Event',
+					title: 'Szczepienia',
 					start: '2016-01-16T16:00:00'
 				},
 				{
-					title: 'Conference',
+					title: 'Konferencja',
 					start: '2016-01-11',
 					end: '2016-01-13'
 				},
 				{
-					title: 'Meeting',
+					title: 'Przyjmowanie prywatne',
 					start: '2016-01-12T10:30:00',
 					end: '2016-01-12T12:30:00'
-				},
-				{
-					title: 'Lunch',
-					start: '2016-01-12T12:00:00'
-				},
-				{
-					title: 'Meeting',
-					start: '2016-01-12T14:30:00'
-				},
-				{
-					title: 'Happy Hour',
-					start: '2016-01-12T17:30:00'
-				},
-				{
-					title: 'Dinner',
-					start: '2016-01-12T20:00:00'
-				},
-				{
-					title: 'Birthday Party',
-					start: '2016-01-13T07:00:00'
-				},
-				{
-					title: 'Click for Google',
-					url: 'http://google.com/',
-					start: '2016-01-28'
 				}
+				
+				
 			]
 		});
 	});

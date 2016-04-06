@@ -49,6 +49,7 @@
 
 </head>
 <body >
+
 <script src="js/scripts.js"></script> <!--skryptów obsługujących to co dzieje się na stronie-->
 	<!-- 
 
@@ -192,7 +193,7 @@
 	    <div id="footer" data-role="footer" data-theme="b" data-iconpos="top" data-id="foo1" data-position="fixed">
 			<div data-role="navbar">
 				<ul>
-					<li><a data-icon="alert" href="#page1">Wyloguj</a></li>
+					<li><a data-icon="delete" href="#nurse_page">Anuluj</a></li>
 					
 				</ul>
 			</div><!-- /navbar -->
@@ -256,7 +257,7 @@
 	    <div id="footer" data-role="footer" data-theme="b" data-iconpos="top" data-id="foo1" data-position="fixed">
 			<div data-role="navbar">
 				<ul>
-					<li><a data-icon="delete" href="#admin_page">Anuluj</a></li>
+					<li><a data-icon="delete" href="#nurse_page">Anuluj</a></li>
 					
 				</ul>
 			</div><!-- /navbar -->
@@ -280,7 +281,6 @@
 		   		<!-- możliwe zadania do wykonania -->
 			   		<li data-role="list-divider" role="heading" class="ui-li ui-li-divider ui-bar-b">Panel lekarza</li>
 					<li><a id="show_all_patients_button" href="#show_all_patient_page">Wyświetl wszystkich pacjentów</a></li>
-					<li><a href="#show_patient_panel">Wyświetl dane przydzielonych pielęgniarek</a></li>
 					<li><a id="show_doctors_callendar" href="#show_doctors_callendar_page">Wyświetl grafik</a></li>				
 					
 
@@ -325,8 +325,8 @@
 		<div id="footer" data-role="footer" data-theme="b" data-iconpos="top" data-id="foo1" data-position="fixed">
 			<div data-role="navbar">
 				<ul>
-					<li><a data-icon="back" href="#admin_page">Cofnij</a></li>
-					<li><a id="delete_user_accept"data-icon="check" href="#pop_up_page" data-rel="dialog" data-transition="flip">Akceptuj</a></li>
+					<li><a data-icon="back" href="#doctor_page">Cofnij</a></li>
+					<li><a id="accept_all_patient_pesel"data-icon="check" href="#show_patient_panel" data-rel="dialog" data-transition="flip">Akceptuj</a></li>
 					
 					
 				</ul>
@@ -359,8 +359,8 @@
 		<div id="footer" data-role="footer" data-theme="b" data-iconpos="top" data-id="foo1" data-position="fixed">
 			<div data-role="navbar">
 				<ul>
-					<li><a data-icon="back" href="#admin_page">Cofnij</a></li>
-					<li><a id="delete_user_accept"data-icon="check" href="#pop_up_page" data-rel="dialog" data-transition="flip">Akceptuj</a></li>
+					<li><a data-icon="back" href="#doctor_page">Cofnij</a></li>
+					
 					
 					
 				</ul>
@@ -377,15 +377,15 @@
 			   
 		</div>
 		<div data-role="content" id="content3" data-theme="b">
+		<center><h1 id="panel_h1"></h1></center>
 			<fieldset class="ui-grid-a" >
 					<div style="width:200px;" class="ui-block-a">
 						<div>
 						<ul style="margin-top:0;margin-bottom:0;margin-left:0;margin-right:0;border-radius:10px;" data-role="listview" data-theme="a">
-							<li><a href="#" class="ui-btn">Historia choroby pacjenta</a></li>
-							<li><a href="#" class="ui-btn">Historia choroby pacjenta</a></li>
-							<li><a href="#" class="ui-btn">Dodaj chorobę</a></li>
-							<li><a href="#" class="ui-btn">Lista skierowań</a></li>
-							<li><a href="#" class="ui-btn">Lista recept</a></li>
+							<li><a id="panel_history_button" href="#" class="ui-btn">Historia choroby pacjenta</a></li>
+							<li><a id="panel_add_button" href="#" class="ui-btn">Dodaj chorobę</a></li>
+							<li><a id="panel_list_referral_button" href="#" class="ui-btn">Lista skierowań</a></li>
+							<li><a id="panel_history_prescription_button" href="#" class="ui-btn">Lista recept</a></li>
 							
 				
 						</ul>
@@ -403,8 +403,8 @@
 		<div id="footer" data-role="footer" data-theme="b" data-iconpos="top" data-id="foo1" data-position="fixed">
 			<div data-role="navbar">
 				<ul>
-					<li><a data-icon="back" href="#admin_page">Cofnij</a></li>
-					<li><a id="delete_user_accept"data-icon="check" href="#pop_up_page" data-rel="dialog" data-transition="flip">Akceptuj</a></li>
+					<li><a data-icon="back" href="#doctor_page">Cofnij</a></li>
+					
 					
 					
 				</ul>
